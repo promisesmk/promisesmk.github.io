@@ -9,7 +9,7 @@
 }
 
 /* ---------------------------------------
-   BACKGROUND (DESKTOP DEFAULT)
+   DESKTOP BACKGROUND (DEFAULT)
 ---------------------------------------- */
 html {
     height: 100%;
@@ -43,33 +43,34 @@ body::before {
 }
 
 /* ---------------------------------------
-   BACKGROUND FIX FOR MOBILE (FORCE SHOW)
+   UNIVERSAL MOBILE BACKGROUND FIX
+   (iPhone / iPad / Android)
 ---------------------------------------- */
-@media (max-width: 900px) {
+@media (hover: none) and (pointer: coarse) {
 
-    /* 모바일은 fixed 비허용 → scroll 전환 */
+    /* BODY 배경 무력화 + HTML로 배경 이동 (iPad 핵심 fix) */
     body {
+        background-image: none !important;
         background-attachment: scroll !important;
         background-position: center top !important;
     }
 
-    /* Overlay 문제 방지 위해 top부터 덮도록 수정 */
+    html {
+        background-image: url("/assets/background.jpg") !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center top !important;
+    }
+
+    /* 오버레이 전체 적용 */
     body::before {
         top: 0 !important;
         height: 100% !important;
     }
-
-    /* iOS에서 body 배경이 무시되는 경우 html에도 동일하게 부여 */
-    html {
-        background-image: url("/assets/background.jpg") !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center top !important;
-    }
 }
 
 /* ---------------------------------------
-   NAVIGATION (PC & MOBILE → 항상 가로 유지)
+   NAVIGATION (Always Horizontal)
 ---------------------------------------- */
 nav {
     width: 100%;
@@ -87,10 +88,12 @@ nav {
     gap: 40px;
 }
 
-/* 로고 위치 고정 */
+/* Logo left */
 nav .logo {
     position: absolute;
     left: 25px;
+    display: flex;
+    align-items: center;
 }
 
 nav .logo img {
@@ -98,29 +101,31 @@ nav .logo img {
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* 네비게이션 - 항상 가로 */
+/* Navigation menu horizontal */
 nav ul {
     display: flex;
-    gap: 30px;
     list-style: none !important;
+    gap: 30px;
 }
+
 nav ul li::before {
     content: none !important;
 }
 
 nav a {
-    text-decoration: none !important;
     font-size: 18px;
     color: #cccccc;
+    text-decoration: none !important;
     transition: 0.25s ease;
 }
+
 nav a:hover {
     color: #00d4ff;
     text-shadow: 0 0 10px #00d4ff;
 }
 
 /* ---------------------------------------
-   LINKS (보라색 visited 제거)
+   LINKS (No purple visited)
 ---------------------------------------- */
 a:link,
 a:visited,
@@ -131,7 +136,7 @@ a:active {
 }
 
 /* ---------------------------------------
-   CONTAINER & CARD
+   CONTAINER / CARD
 ---------------------------------------- */
 .container {
     width: 85%;
@@ -153,9 +158,9 @@ a:active {
 ---------------------------------------- */
 h1 {
     font-size: 38px;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 14px;
-    font-weight: 700;
     color: #00eaff;
     text-shadow: 0 0 10px #00eaff;
 }
@@ -167,7 +172,7 @@ h2 {
 }
 
 /* ---------------------------------------
-   LIST (기본 체크 제거)
+   LIST RESET
 ---------------------------------------- */
 ul {
     list-style: none !important;
