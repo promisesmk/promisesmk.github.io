@@ -1,6 +1,6 @@
 /* ------------------------------
    Global Design – Dark Theme + Neon Accent
-   31NS-Tech Hardware Lab
+   31NS-Tech Hardware Lab (최종본)
 --------------------------------*/
 
 /* Reset */
@@ -11,13 +11,14 @@
     font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
-/* 전체 배경 + 메뉴 아래부터 이미지 적용 */
+/* 전체 배경 */
 body {
     background: #0d0d0f;
     color: #e6e6e6;
     line-height: 1.6;
     padding-bottom: 50px;
 
+    /* 배경 이미지 */
     background-image: url("/assets/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,6 +28,7 @@ body {
     position: relative;
 }
 
+/* 상단 메뉴 제외 영역에 어둡게 오버레이 */
 body::before {
     content: "";
     position: fixed;
@@ -71,7 +73,7 @@ nav .logo img {
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* 네비게이션 체크 완전 제거 */
+/* 네비 체크 제거 */
 nav ul {
     list-style: none !important;
     padding-left: 0 !important;
@@ -86,7 +88,7 @@ nav ul li::before {
     content: none !important;
 }
 
-/* 네비 링크 */
+/* 네비 링크 스타일 */
 nav a {
     color: #cccccc;
     text-decoration: none;
@@ -148,7 +150,7 @@ h2 {
    LIST STYLE
 --------------------------------*/
 
-/* 리스트 자동 체크 제거 (✓ 제거) */
+/* 리스트 자동 체크 제거 */
 ul {
     list-style: none !important;
     padding-left: 0 !important;
@@ -159,7 +161,7 @@ ul li {
     font-size: 18px;
 }
 
-/* CSS 자동 체크 제거 */
+/* CSS 자동 앞 아이콘 완전 제거 (✓, ► 제거됨) */
 ul li::before {
     content: none !important;
 }
@@ -180,7 +182,7 @@ a:hover {
 }
 
 /* ------------------------------
-   CONTACT FORM
+   CONTACT BOX
 --------------------------------*/
 
 .contact-box {
@@ -191,7 +193,18 @@ a:hover {
 }
 
 /* ------------------------------
-   RESPONSIVE
+   MOBILE FIX (배경이 모바일에서 안보이는 문제 해결)
+--------------------------------*/
+
+@media (max-width: 900px) {
+    body {
+        background-attachment: scroll !important;  /* 모바일 호환 */
+        background-position: center top !important;
+    }
+}
+
+/* ------------------------------
+   RESPONSIVE NAVIGATION
 --------------------------------*/
 
 @media (max-width: 700px) {
