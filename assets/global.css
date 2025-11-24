@@ -18,21 +18,19 @@ body {
     line-height: 1.6;
     padding-bottom: 50px;
 
-    /* 배경 이미지 적용 */
     background-image: url("/assets/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 
-    /* 메뉴와 구분되도록 약간 어둡게 오버레이 */
     position: relative;
 }
 
 body::before {
     content: "";
     position: fixed;
-    top: 90px; 
+    top: 90px;
     left: 0;
     width: 100%;
     height: calc(100% - 90px);
@@ -53,15 +51,14 @@ nav {
     z-index: 1000;
 
     display: flex;
-    justify-content: center; /* 메뉴 중앙 정렬 핵심 */
+    justify-content: center;
     align-items: center;
-    gap: 40px; /* 로고와 메뉴 간격 */
+    gap: 40px;
 }
 
-/* 로고 */
 nav .logo {
     position: absolute;
-    left: 25px;  /* 2cm에 가장 가까운 웹기준 값 */
+    left: 25px;
     display: flex;
     align-items: center;
 }
@@ -72,15 +69,14 @@ nav .logo img {
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* 메뉴 */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 35px;       /* 메뉴 간 간격 */
+    gap: 35px;
 }
 
-nav ul li {
-    display: inline-block;
+nav ul li::before {
+    content: none !important;
 }
 
 nav a {
@@ -150,13 +146,11 @@ ul {
 ul li {
     margin: 8px 0;
     font-size: 18px;
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 ul li::before {
-    content: "✓";
-    color: #00eaff;
-    margin-right: 8px;
+    content: none !important;
 }
 
 /* LINKS */
@@ -179,9 +173,7 @@ a:hover {
     border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* ------------------------------
-   RESPONSIVE
---------------------------------*/
+/* RESPONSIVE */
 @media (max-width: 700px) {
     nav {
         flex-direction: column;
