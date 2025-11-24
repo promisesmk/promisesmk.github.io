@@ -11,47 +11,63 @@
     font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
-/* 전체 배경 */
+/* 전체 배경 + 메뉴 아래부터 이미지 적용 */
 body {
     background: #0d0d0f;
     color: #e6e6e6;
     line-height: 1.6;
     padding-bottom: 50px;
 
-    /* 배경 이미지 */
+    /* 배경 이미지 적용 */
     background-image: url("assets/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+
+    /* 메뉴와 구분되도록 약간 어둡게 오버레이 */
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 90px; 
+    left: 0;
+    width: 100%;
+    height: calc(100% - 90px);
+    background: rgba(0, 0, 0, 0.48);
+    z-index: -1;
 }
 
 /* ------------------------------
-   NAVIGATION (Centered Layout)
+   NAVIGATION
 --------------------------------*/
 nav {
     width: 100%;
+    padding: 15px 0;
     background: #0d0d0f;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-/* nav 내부를 가운데 정렬하는 컨테이너 */
-.nav-content {
-    max-width: 1250px;
-    margin: 0 auto;
-    padding: 15px 40px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* 메뉴 중앙 정렬 핵심 */
     align-items: center;
+    gap: 40px; /* 로고와 메뉴 간격 */
 }
 
 /* 로고 */
+nav .logo {
+    position: absolute;
+    left: 25px;  /* 2cm에 가장 가까운 웹기준 값 */
+    display: flex;
+    align-items: center;
+}
+
 nav .logo img {
-    height: 46px;
+    height: 42px;
     width: auto;
     filter: drop-shadow(0 0 6px #00eaff);
 }
@@ -60,18 +76,18 @@ nav .logo img {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 28px;
+    gap: 35px;       /* 메뉴 간 간격 */
 }
 
 nav ul li {
-    margin: 0;
+    display: inline-block;
 }
 
 nav a {
     color: #cccccc;
     text-decoration: none;
     font-size: 18px;
-    transition: 0.25s;
+    transition: 0.25s ease;
 }
 
 nav a:hover {
@@ -83,13 +99,13 @@ nav a:hover {
    CONTAINER & CARD
 --------------------------------*/
 .container {
-    width: 90%;
+    width: 85%;
     max-width: 1100px;
-    margin: 60px auto;
+    margin: 40px auto;
 }
 
 .card {
-    background: rgba(13, 13, 15, 0.85);
+    background: rgba(19, 19, 22, 0.85);
     padding: 28px;
     margin-top: 24px;
     border-radius: 14px;
@@ -97,13 +113,23 @@ nav a:hover {
     box-shadow: 0 0 22px rgba(0, 214, 255, 0.08);
 }
 
-/* HEADINGS */
+/* ------------------------------
+   HEADINGS
+--------------------------------*/
 h1 {
     font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 14px;
     text-align: center;
     color: #00eaff;
     text-shadow: 0 0 10px #00eaff;
-    margin-bottom: 14px;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #00c8ff;
 }
 
 .page-subtitle {
@@ -112,20 +138,19 @@ h1 {
     margin-bottom: 35px;
 }
 
-h2 {
-    font-size: 26px;
-    color: #00c8ff;
-    margin-bottom: 12px;
-}
-
-/* 리스트 스타일 */
+/* ------------------------------
+   TEXT / LIST STYLE
+--------------------------------*/
 ul {
+    list-style: none;
+    padding-left: 0;
     margin-top: 15px;
 }
 
 ul li {
     margin: 8px 0;
     font-size: 18px;
+    padding-left: 10px;
 }
 
 ul li::before {
@@ -134,11 +159,11 @@ ul li::before {
     margin-right: 8px;
 }
 
-/* 링크 */
+/* LINKS */
 a {
     color: #00eaff;
     text-decoration: none;
-    transition: 0.25s;
+    transition: 0.25s ease;
 }
 
 a:hover {
@@ -146,15 +171,30 @@ a:hover {
     text-shadow: 0 0 10px #6befff;
 }
 
-/* 반응형 */
-@media (max-width: 600px) {
-    .nav-content {
+/* CONTACT FORM */
+.contact-box {
+    padding: 20px;
+    background: rgba(17, 17, 20, 0.85);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ------------------------------
+   RESPONSIVE
+--------------------------------*/
+@media (max-width: 700px) {
+    nav {
         flex-direction: column;
+        padding-bottom: 10px;
+    }
+    
+    nav .logo {
+        position: static;
+        margin-bottom: 8px;
     }
 
     nav ul {
         flex-direction: column;
         gap: 12px;
-        margin-top: 10px;
     }
 }
