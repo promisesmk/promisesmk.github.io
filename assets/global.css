@@ -1,9 +1,6 @@
-/* ------------------------------
-   Global Design – Dark Theme + Neon Accent
-   31NS-Tech Hardware Lab (PC 가로 메뉴 정상화 버전)
---------------------------------*/
-
-/* Reset */
+/* ---------------------------------------
+   GLOBAL RESET
+---------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +8,13 @@
     font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
-/* 전체 배경 */
+/* ---------------------------------------
+   BACKGROUND (DESKTOP DEFAULT)
+---------------------------------------- */
+html {
+    height: 100%;
+}
+
 body {
     background: #0d0d0f;
     color: #e6e6e6;
@@ -21,13 +24,13 @@ body {
     background-image: url("/assets/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     background-position: center;
+    background-attachment: fixed;
 
     position: relative;
 }
 
-/* 메뉴 아래 어둡게 */
+/* Overlay for readability */
 body::before {
     content: "";
     position: fixed;
@@ -35,19 +38,45 @@ body::before {
     left: 0;
     width: 100%;
     height: calc(100% - 90px);
-    background: rgba(0, 0, 0, 0.48);
+    background: rgba(0, 0, 0, 0.50);
     z-index: -1;
 }
 
-/* ------------------------------
-   NAVIGATION (PC & Mobile 모두 가로 유지)
---------------------------------*/
+/* ---------------------------------------
+   BACKGROUND FIX FOR MOBILE (FORCE SHOW)
+---------------------------------------- */
+@media (max-width: 900px) {
 
+    /* 모바일은 fixed 비허용 → scroll 전환 */
+    body {
+        background-attachment: scroll !important;
+        background-position: center top !important;
+    }
+
+    /* Overlay 문제 방지 위해 top부터 덮도록 수정 */
+    body::before {
+        top: 0 !important;
+        height: 100% !important;
+    }
+
+    /* iOS에서 body 배경이 무시되는 경우 html에도 동일하게 부여 */
+    html {
+        background-image: url("/assets/background.jpg") !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center top !important;
+    }
+}
+
+/* ---------------------------------------
+   NAVIGATION (PC & MOBILE → 항상 가로 유지)
+---------------------------------------- */
 nav {
     width: 100%;
     padding: 15px 0;
     background: #0d0d0f;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -58,40 +87,31 @@ nav {
     gap: 40px;
 }
 
-/* 로고 왼쪽 고정 */
+/* 로고 위치 고정 */
 nav .logo {
     position: absolute;
     left: 25px;
-    display: flex;
-    align-items: center;
 }
 
 nav .logo img {
     height: 42px;
-    width: auto;
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* 네비 리스트 수평 유지 */
+/* 네비게이션 - 항상 가로 */
 nav ul {
-    list-style: none !important;
-    display: flex;  /* ← 이걸 고정해야 수평 유지됨 */
+    display: flex;
     gap: 30px;
-}
-
-nav ul li {
     list-style: none !important;
 }
-
 nav ul li::before {
     content: none !important;
 }
 
-/* 메뉴 텍스트 스타일 */
 nav a {
-    color: #cccccc;
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 18px;
+    color: #cccccc;
     transition: 0.25s ease;
 }
 nav a:hover {
@@ -99,10 +119,20 @@ nav a:hover {
     text-shadow: 0 0 10px #00d4ff;
 }
 
-/* ------------------------------
-   카드 & 컨테이너
---------------------------------*/
+/* ---------------------------------------
+   LINKS (보라색 visited 제거)
+---------------------------------------- */
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #00eaff !important;
+    text-decoration: none !important;
+}
 
+/* ---------------------------------------
+   CONTAINER & CARD
+---------------------------------------- */
 .container {
     width: 85%;
     max-width: 1100px;
@@ -114,43 +144,33 @@ nav a:hover {
     padding: 28px;
     margin-top: 24px;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 22px rgba(0, 214, 255, 0.08);
 }
 
-/* ------------------------------
-   TEXT
---------------------------------*/
-
+/* ---------------------------------------
+   HEADINGS
+---------------------------------------- */
 h1 {
     font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 14px;
     text-align: center;
+    margin-bottom: 14px;
+    font-weight: 700;
     color: #00eaff;
     text-shadow: 0 0 10px #00eaff;
 }
 
 h2 {
     font-size: 26px;
-    font-weight: 600;
     margin-bottom: 12px;
     color: #00c8ff;
 }
 
-.page-subtitle {
-    text-align: center;
-    color: #bbbbbb;
-    margin-bottom: 35px;
-}
-
-/* ------------------------------
-   LIST
---------------------------------*/
-
+/* ---------------------------------------
+   LIST (기본 체크 제거)
+---------------------------------------- */
 ul {
     list-style: none !important;
-    padding-left: 0 !important;
 }
 ul li {
     margin: 8px 0;
@@ -158,15 +178,4 @@ ul li {
 }
 ul li::before {
     content: none !important;
-}
-
-/* ------------------------------
-   MOBILE 배경 표시 수정
---------------------------------*/
-
-@media (max-width: 900px) {
-    body {
-        background-attachment: scroll !important;
-        background-position: center top !important;
-    }
 }
