@@ -1,106 +1,200 @@
-/* ===== Global Dark Neon Theme ===== */
-body {
+/* ------------------------------
+   Global Design – Dark Theme + Neon Accent
+   31NS-Tech Hardware Lab
+--------------------------------*/
+
+/* Reset 기본값 제거 */
+* {
     margin: 0;
     padding: 0;
-    background: #0b0c0f;
-    color: #d7d7d7;
-    font-family: "Segoe UI", sans-serif;
-    line-height: 1.7;
+    box-sizing: border-box;
+    font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
-/* Layout */
+/* 전체 배경 및 기본 텍스트 */
+body {
+    background: #0d0d0f;
+    color: #e6e6e6;
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+/* ------------------------------
+   NAVIGATION
+--------------------------------*/
+nav {
+    width: 100%;
+    padding: 20px 0;
+    background: #0d0d0f;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 18px;
+}
+
+nav a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.25s ease;
+}
+
+nav a:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 10px #00d4ff;
+}
+
+/* ------------------------------
+   CONTAINER & CARD
+--------------------------------*/
 .container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 60px 20px;
+    width: 85%;
+    max-width: 1100px;
+    margin: 40px auto;
 }
 
-/* Page Title */
-.page-title {
+.card {
+    background: #131316;
+    padding: 28px;
+    margin-top: 24px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 22px rgba(0, 214, 255, 0.08);
+}
+
+/* ------------------------------
+   HEADINGS
+--------------------------------*/
+h1 {
     font-size: 38px;
     font-weight: 700;
+    margin-bottom: 14px;
     text-align: center;
-    margin-bottom: 10px;
-    color: #00e6ff;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #00c8ff;
 }
 
 .page-subtitle {
     text-align: center;
-    font-size: 16px;
-    color: #8abecb;
-    margin-bottom: 50px;
+    color: #bbbbbb;
+    margin-bottom: 35px;
 }
 
-/* Section Title */
-.section-title {
-    font-size: 22px;
-    margin-top: 40px;
-    margin-bottom: 18px;
-    font-weight: 600;
-    color: #00d4ff;
-    border-left: 4px solid #00d4ff;
-    padding-left: 10px;
-}
-
-/* Card UI */
-.card {
-    background: rgba(255,255,255,0.03);
-    padding: 22px;
-    margin: 15px 0 30px 0;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 12px rgba(0,255,255,0.08);
-}
-
-/* Neon Highlight */
-.highlight {
-    color: #00f7ff;
-    font-weight: 600;
-}
-
-/* Bullet Icons */
+/* ------------------------------
+   TEXT / LIST STYLE
+--------------------------------*/
 ul {
-    padding-left: 20px;
-}
-
-li {
-    margin: 8px 0;
-}
-
-.icon {
-    color: #00f7ff;
-    margin-right: 6px;
-}
-
-/* Navigation Bar */
-nav {
-    width: 100%;
-    background: rgba(0,0,0,0.6);
-    padding: 12px 0;
-    backdrop-filter: blur(4px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    padding-left: 0;
+    margin-top: 15px;
 }
 
-nav a {
-    color: #00e6ff;
+ul li {
+    margin: 8px 0;
+    font-size: 18px;
+    padding-left: 10px;
+    position: relative;
+}
+
+ul li::before {
+    content: "✓";
+    color: #00eaff;
+    margin-right: 8px;
+}
+
+/* ------------------------------
+   LINKS (본문 링크)
+--------------------------------*/
+a {
+    color: #00eaff;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: 0.2s;
+    transition: 0.25s ease;
 }
 
-nav a:hover {
-    color: #00f7ff;
-    text-shadow: 0 0 8px #00f7ff;
+a:hover {
+    color: #6befff;
+    text-shadow: 0 0 10px #6befff;
+}
+
+/* ------------------------------
+   CONTACT FORM (Contact 페이지용)
+--------------------------------*/
+.contact-box {
+    padding: 20px;
+    background: #111114;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.contact-label {
+    font-size: 18px;
+    margin-bottom: 6px;
+    display: block;
+    color: #e6e6e6;
+}
+
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #0d0d0f;
+    color: #e6e6e6;
+    font-size: 16px;
+}
+
+.contact-textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.contact-button {
+    width: 100%;
+    padding: 12px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.contact-button:hover {
+    background: #6af3ff;
+}
+
+/* ------------------------------
+   RESPONSIVE
+--------------------------------*/
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 12px 0;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
 }
