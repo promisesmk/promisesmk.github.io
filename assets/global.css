@@ -17,25 +17,23 @@ html, body {
 }
 
 /* -----------------------------------------------------
-   BACKGROUND — 동일 scroll 방식 (PC/Mobile)
+   BACKGROUND LAYER (PC fixed / Mobile scroll)
 ----------------------------------------------------- */
 .bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    z-index: 0;
 
     background-image: url("/assets/background.jpg");
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     background-repeat: no-repeat;
-
-    z-index: 0;
-    min-height: 100%;
 }
 
-/* 배경 오버레이 */
+/* 어둡게 오버레이 */
 .bg::after {
     content: "";
     position: absolute;
@@ -48,11 +46,30 @@ html, body {
 }
 
 /* -----------------------------------------------------
+   MOBILE — SCROLL BACKGROUND + FULL LENGTH
+   (iPhone / iPad / Android)
+----------------------------------------------------- */
+@media (hover:none) and (pointer:coarse) {
+
+    .bg {
+        position: absolute;
+        background-attachment: scroll !important;
+        height: auto;
+        min-height: 100%;
+    }
+
+    .bg::after {
+        position: absolute;
+        height: 100%;
+    }
+}
+
+/* -----------------------------------------------------
    CONTENT LAYER
 ----------------------------------------------------- */
 .container, nav, .card, h1, h2, p, ul, li {
     position: relative;
-    z-index: 10; 
+    z-index: 10;  /* 텍스트는 항상 배경보다 앞 */
 }
 
 /* -----------------------------------------------------
@@ -134,7 +151,7 @@ h2 {
     padding: 28px;
     border-radius: 14px;
     border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 15px rgba(0,214,255,0.05);
+    box-shadow: 0 0 20px rgba(0,214,255,0.06);
     margin-top: 24px;
 }
 
@@ -159,7 +176,7 @@ ul li::before {
     content: none !important;
 }
 
-/* 링크 색상 통일 */
+/* 링크 색 통일 */
 a:link, a:visited, a:hover, a:active {
     color: #00eaff !important;
     text-decoration: none !important;
