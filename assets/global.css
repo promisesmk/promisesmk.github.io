@@ -11,32 +11,30 @@
     font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
-/* 전체 배경 + 메뉴 아래부터 이미지 적용 */
+/* ------------------------------
+   Body + Background
+--------------------------------*/
 body {
     background: #0d0d0f;
     color: #e6e6e6;
     line-height: 1.6;
     padding-bottom: 50px;
 
-    /* 배경 이미지 적용 */
-    background-image: url("assets/background.jpg");
-    background-repeat: no-repeat;
+    background-image: url("../assets/background.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-
-    /* 메뉴와 구분되도록 약간 어둡게 오버레이 */
-    position: relative;
 }
 
 body::before {
     content: "";
     position: fixed;
-    top: 80px; /* nav 아래부터 */
+    top: 90px;
     left: 0;
     width: 100%;
-    height: calc(100% - 80px);
-    background: rgba(0, 0, 0, 0.48);
+    height: calc(100% - 90px);
+    background: rgba(0, 0, 0, 0.55);
     z-index: -1;
 }
 
@@ -45,88 +43,79 @@ body::before {
 --------------------------------*/
 nav {
     width: 100%;
-    padding: 15px 40px;
     background: #0d0d0f;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 14px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+/* Nav 내부 정렬 컨테이너 */
+.nav-container {
+    width: 88%;
+    max-width: 1400px;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* ---- 로고 영역 ---- */
-nav .logo {
-    display: flex;
-    align-items: center;
-}
-
-nav .logo img {
-    height: 42px;
+/* 로고 */
+.logo img {
+    height: 45px;
     width: auto;
-    margin-right: 15px;
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
-/* ---- 메뉴 ---- */
-nav ul {
+/* 메뉴 */
+nav ul.menu {
     list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 16px;
-}
-
-nav a {
-    color: #cccccc;
+nav ul.menu li a {
     text-decoration: none;
+    color: #cccccc;
     font-size: 18px;
     transition: 0.25s ease;
 }
 
-nav a:hover {
+nav ul.menu li a:hover {
     color: #00d4ff;
     text-shadow: 0 0 10px #00d4ff;
 }
 
 /* ------------------------------
-   CONTAINER & CARD
+   CONTAINER
 --------------------------------*/
 .container {
-    width: 85%;
+    width: 88%;
     max-width: 1100px;
     margin: 40px auto;
 }
 
+/* 카드 */
 .card {
-    background: rgba(19, 19, 22, 0.85);
+    background: rgba(19,19,22,0.82);
     padding: 28px;
     margin-top: 24px;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    box-shadow: 0 0 22px rgba(0, 214, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 22px rgba(0,214,255,0.07);
 }
 
 /* ------------------------------
    HEADINGS
 --------------------------------*/
 h1 {
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 14px;
     text-align: center;
+    font-size: 38px;
     color: #00eaff;
-    text-shadow: 0 0 10px #00eaff;
-}
-
-h2 {
-    font-size: 26px;
-    font-weight: 600;
     margin-bottom: 12px;
-    color: #00c8ff;
+    text-shadow: 0 0 10px #00eaff;
 }
 
 .page-subtitle {
@@ -135,26 +124,30 @@ h2 {
     margin-bottom: 35px;
 }
 
+h2 {
+    font-size: 26px;
+    color: #00c8ff;
+    margin-bottom: 12px;
+}
+
 /* ------------------------------
-   TEXT / LIST STYLE
+   LIST STYLE
 --------------------------------*/
 ul {
     list-style: none;
-    padding-left: 0;
     margin-top: 15px;
 }
 
 ul li {
-    margin: 8px 0;
+    margin: 10px 0;
+    padding-left: 8px;
     font-size: 18px;
-    padding-left: 10px;
-    position: relative;
 }
 
 ul li::before {
-    content: "✓";
+    content: "✓ ";
     color: #00eaff;
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 /* ------------------------------
@@ -163,7 +156,6 @@ ul li::before {
 a {
     color: #00eaff;
     text-decoration: none;
-    transition: 0.25s ease;
 }
 
 a:hover {
@@ -176,28 +168,20 @@ a:hover {
 --------------------------------*/
 .contact-box {
     padding: 20px;
-    background: rgba(17, 17, 20, 0.85);
+    background: rgba(17,17,20,0.82);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.contact-label {
-    font-size: 18px;
-    margin-bottom: 6px;
-    display: block;
-    color: #e6e6e6;
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
 .contact-input,
 .contact-textarea {
     width: 100%;
     padding: 12px;
-    margin-bottom: 14px;
     border-radius: 8px;
-    border: 1px solid #555;
     background: #0d0d0f;
+    border: 1px solid #555;
     color: #e6e6e6;
-    font-size: 16px;
+    margin-bottom: 14px;
 }
 
 .contact-textarea {
@@ -207,35 +191,26 @@ a:hover {
 
 .contact-button {
     width: 100%;
-    padding: 12px;
     background: #00d4ff;
+    color: #000;
     border: none;
+    padding: 12px;
     border-radius: 8px;
     font-size: 18px;
-    color: #000;
-    cursor: pointer;
     font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.contact-button:hover {
-    background: #6af3ff;
+    cursor: pointer;
 }
 
 /* ------------------------------
    RESPONSIVE
 --------------------------------*/
-@media (max-width: 600px) {
-    nav {
+@media (max-width: 700px) {
+    .nav-container {
         flex-direction: column;
+        gap: 12px;
     }
 
-    nav ul li {
-        display: block;
-        margin: 12px 0;
-    }
-
-    h1 {
-        font-size: 30px;
+    nav ul.menu {
+        gap: 14px;
     }
 }
