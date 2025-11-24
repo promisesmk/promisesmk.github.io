@@ -41,6 +41,7 @@ body::before {
 /* ------------------------------
    NAVIGATION
 --------------------------------*/
+
 nav {
     width: 100%;
     padding: 15px 0;
@@ -56,6 +57,7 @@ nav {
     gap: 40px;
 }
 
+/* 로고 */
 nav .logo {
     position: absolute;
     left: 25px;
@@ -69,16 +71,22 @@ nav .logo img {
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
+/* 네비게이션 체크 완전 제거 */
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 35px;
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+nav ul li {
+    list-style: none !important;
 }
 
 nav ul li::before {
     content: none !important;
 }
 
+/* 네비 링크 */
 nav a {
     color: #cccccc;
     text-decoration: none;
@@ -94,6 +102,7 @@ nav a:hover {
 /* ------------------------------
    CONTAINER & CARD
 --------------------------------*/
+
 .container {
     width: 85%;
     max-width: 1100px;
@@ -112,6 +121,7 @@ nav a:hover {
 /* ------------------------------
    HEADINGS
 --------------------------------*/
+
 h1 {
     font-size: 38px;
     font-weight: 700;
@@ -135,25 +145,29 @@ h2 {
 }
 
 /* ------------------------------
-   TEXT / LIST STYLE
+   LIST STYLE
 --------------------------------*/
+
+/* 리스트 자동 체크 제거 (✓ 제거) */
 ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 15px;
+    list-style: none !important;
+    padding-left: 0 !important;
 }
 
 ul li {
     margin: 8px 0;
     font-size: 18px;
-    padding-left: 0;
 }
 
+/* CSS 자동 체크 제거 */
 ul li::before {
     content: none !important;
 }
 
-/* LINKS */
+/* ------------------------------
+   LINKS
+--------------------------------*/
+
 a {
     color: #00eaff;
     text-decoration: none;
@@ -165,7 +179,10 @@ a:hover {
     text-shadow: 0 0 10px #6befff;
 }
 
-/* CONTACT FORM */
+/* ------------------------------
+   CONTACT FORM
+--------------------------------*/
+
 .contact-box {
     padding: 20px;
     background: rgba(17, 17, 20, 0.85);
@@ -173,7 +190,10 @@ a:hover {
     border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* RESPONSIVE */
+/* ------------------------------
+   RESPONSIVE
+--------------------------------*/
+
 @media (max-width: 700px) {
     nav {
         flex-direction: column;
