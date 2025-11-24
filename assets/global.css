@@ -1,192 +1,183 @@
-/* =======================
-   Reset 기본 설정
-======================= */
+/* -----------------------------------------------------
+   RESET & BASE
+----------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
 html, body {
-    height: 100%;
-    overflow: hidden; /* 전체 배경 고정, 콘텐츠 Scroll은 overlay만 */
-    font-family: Pretendard, sans-serif;
-    color: #ffffff;
-    background: #000;
+    width: 100%;
+    min-height: 100%;
+    background: #000 !important;
+    color: #fff !important;
+    overflow-x: hidden;
 }
 
-/* =======================
-   전체 배경 (C 방식)
-======================= */
+/* -----------------------------------------------------
+   BACKGROUND LAYER (PC fixed / Mobile scroll)
+----------------------------------------------------- */
 .bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("assets/background.jpg") center/cover no-repeat;
-    z-index: -1;
+    z-index: 0;
+
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* =======================
-   콘텐츠 스크롤 영역
-======================= */
-.overlay-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding-top: 120px;
-    overflow-y: auto;
-}
-
-/* =======================
-   Header / Navigation
-======================= */
-header {
-    position: fixed;
+/* 어둡게 오버레이 */
+.bg::after {
+    content: "";
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px;
-    display: flex;
-    justify-content: center; /* 메뉴 중앙 */
-    align-items: center;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(6px);
-    z-index: 10;
+    height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
 }
 
-/* 로고 왼쪽 2cm(≈40px) 위치 */
-.logo {
-    position: absolute;
-    left: 40px;
-    top: 18px;
+/* -----------------------------------------------------
+   MOBILE — SCROLL BACKGROUND + FULL LENGTH
+   (iPhone / iPad / Android)
+----------------------------------------------------- */
+@media (hover:none) and (pointer:coarse) {
+
+    .bg {
+        position: absolute;
+        background-attachment: scroll !important;
+        height: auto;
+        min-height: 100%;
+    }
+
+    .bg::after {
+        position: absolute;
+        height: 100%;
+    }
 }
 
-.logo img {
-    height: 50px;
-    filter: drop-shadow(0 0 6px #00eaff);
-    animation: glow 2.5s infinite alternate;
-}
-
-/* 로고 반짝 효과 */
-@keyframes glow {
-    0%   { filter: drop-shadow(0 0 4px #00eaff); }
-    100% { filter: drop-shadow(0 0 12px #00eaff); }
-}
-
-/* Navigation Menu */
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 45px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 500;
-    transition: 0.25s ease;
-}
-
-nav ul li a:hover {
-    color: #00eaff;
-}
-
-/* =======================
-   이메일(메일주소) 밑줄 제거 + 흰색 고정
-======================= */
-a[href^="mailto:"] {
-    color: inherit !important;
-    text-decoration: none !important;
-}
-
-/* =======================
-   섹션 영역 (C 방식)
-======================= */
-.section {
-    width: 100%;
-    padding: 20px 0 60px 0;
+/* -----------------------------------------------------
+   CONTENT LAYER
+----------------------------------------------------- */
+.container, nav, .card, h1, h2, p, ul, li {
     position: relative;
+    z-index: 10;  /* 텍스트는 항상 배경보다 앞 */
 }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+/* -----------------------------------------------------
+   NAVIGATION
+----------------------------------------------------- */
+nav {
+    width: 100%;
+    padding: 15px 0;
+    background: #0d0d0f;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
 }
 
-/* =======================
-   카드 박스 공통
-======================= */
-.card {
-    background: rgba(0, 0, 0, 0.55);
-    padding: 26px;
-    border-radius: 14px;
-    margin: 28px auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+nav .logo {
+    position: absolute;
+    left: 25px;
 }
 
-/* 리스트 체크 마크 */
-.card ul {
+nav .logo img {
+    height: 42px;
+}
+
+nav ul {
+    display: flex;
     list-style: none;
-    padding-left: 0;
+    gap: 30px;
 }
 
-.card ul li {
-    margin-bottom: 10px;
+nav ul li::before {
+    content: none !important;
 }
 
-.card ul li::before {
-    content: "✓ ";
+nav a {
+    font-size: 18px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 8px #00d4ff;
+}
+
+/* -----------------------------------------------------
+   TITLES
+----------------------------------------------------- */
+h1 {
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 14px;
     color: #00eaff;
-    font-weight: bold;
 }
 
-/* =======================
-   타이틀 스타일
-======================= */
-h1, h2, h3 {
-    color: #00eaff;
-    margin-bottom: 18px;
+h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+    color: #00c8ff;
 }
 
+/* -----------------------------------------------------
+   CARDS
+----------------------------------------------------- */
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.card {
+    background: rgba(19,19,22,0.75);
+    padding: 28px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 0 20px rgba(0,214,255,0.06);
+    margin-top: 24px;
+}
+
+/* -----------------------------------------------------
+   TEXT / LISTS
+----------------------------------------------------- */
 p {
     font-size: 18px;
-    line-height: 1.6;
+    margin-bottom: 12px;
 }
 
-/* =======================
-   모바일 대응
-======================= */
-@media(max-width: 900px) {
+ul {
+    list-style: none !important;
+}
 
-    header {
-        height: 125px;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 10px;
-    }
+ul li {
+    margin: 8px 0;
+    font-size: 18px;
+}
 
-    .logo {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin-bottom: 8px;
-    }
+ul li::before {
+    content: none !important;
+}
 
-    nav ul {
-        flex-wrap: wrap;
-        gap: 22px;
-        justify-content: center;
-    }
-
-    .overlay-container {
-        padding-top: 155px;
-    }
-
-    .card {
-        margin: 18px auto;
-    }
+/* 링크 색 통일 */
+a:link, a:visited, a:hover, a:active {
+    color: #00eaff !important;
+    text-decoration: none !important;
 }
