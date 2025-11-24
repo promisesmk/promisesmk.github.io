@@ -1,183 +1,171 @@
-/* -----------------------------------------------------
-   RESET & BASE
------------------------------------------------------ */
+/* ====================================================================== */
+/* GLOBAL STYLE – C 방식 (섹션 기반 배경 + 헤더 고정 + PC/모바일 완전 호환) */
+/* ====================================================================== */
+
+/* ---------------------- */
+/* 기본 설정              */
+/* ---------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
 html, body {
     width: 100%;
     min-height: 100%;
-    background: #000 !important;
-    color: #fff !important;
+    background: #000; /* 배경 백업색 */
+    font-family: "Noto Sans KR", sans-serif;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-/* -----------------------------------------------------
-   BACKGROUND LAYER (PC fixed / Mobile scroll)
------------------------------------------------------ */
-.bg {
+/* ---------------------- */
+/* 헤더 고정              */
+/* ---------------------- */
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: 0;
+    height: 70px;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
 
-    background-image: url("/assets/background.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 로고 — PC에서 왼쪽 2cm */
+header .logo {
+    position: absolute;
+    left: 32px; /* 2cm 근사값 */
+    top: 14px;
+}
+
+header .logo img {
+    height: 40px;
+    filter: drop-shadow(0px 0px 8px #00eaff);
+}
+
+/* 메뉴 중앙 정렬 */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+nav ul li a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+/* ---------------------- */
+/* 모바일 헤더 구조       */
+/* ---------------------- */
+@media(max-width: 900px) {
+
+    header {
+        height: 110px;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 6px;
+    }
+
+    header .logo {
+        position: static;
+        margin-bottom: 8px;
+    }
+
+    nav ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* ---------------------- */
+/* 섹션 기반 배경 구조    */
+/* ---------------------- */
+
+.section {
+    position: relative;
+    padding: 110px 0 80px 0; /* 헤더 높이만큼 top padding */
+    background-image: url("assets/background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* 어둡게 오버레이 */
-.bg::after {
+/* 섹션 별 오버레이 */
+.section::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    z-index: 1;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: -1;
 }
 
-/* -----------------------------------------------------
-   MOBILE — SCROLL BACKGROUND + FULL LENGTH
-   (iPhone / iPad / Android)
------------------------------------------------------ */
-@media (hover:none) and (pointer:coarse) {
-
-    .bg {
-        position: absolute;
-        background-attachment: scroll !important;
-        height: auto;
-        min-height: 100%;
-    }
-
-    .bg::after {
-        position: absolute;
-        height: 100%;
-    }
+/* 컨테이너 */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
 
-/* -----------------------------------------------------
-   CONTENT LAYER
------------------------------------------------------ */
-.container, nav, .card, h1, h2, p, ul, li {
-    position: relative;
-    z-index: 10;  /* 텍스트는 항상 배경보다 앞 */
+/* ---------------------- */
+/* 카드 스타일            */
+/* ---------------------- */
+.card {
+    background: rgba(0,0,0,0.55);
+    padding: 26px;
+    border-radius: 12px;
+    margin-top: 28px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.35);
 }
 
-/* -----------------------------------------------------
-   NAVIGATION
------------------------------------------------------ */
-nav {
-    width: 100%;
-    padding: 15px 0;
-    background: #0d0d0f;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    position: sticky;
-    top: 0;
-    z-index: 20;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-
-nav .logo {
-    position: absolute;
-    left: 25px;
-}
-
-nav .logo img {
-    height: 42px;
-}
-
-nav ul {
-    display: flex;
+/* 리스트 체크 */
+.card ul {
     list-style: none;
-    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li::before {
-    content: none !important;
+.card ul li {
+    margin-bottom: 8px;
 }
 
-nav a {
-    font-size: 18px;
-    color: #ccc;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: #00d4ff;
-    text-shadow: 0 0 8px #00d4ff;
-}
-
-/* -----------------------------------------------------
-   TITLES
------------------------------------------------------ */
-h1 {
-    font-size: 38px;
-    text-align: center;
-    margin-bottom: 14px;
+.card ul li::before {
+    content: "✓ ";
     color: #00eaff;
+    font-weight: bold;
+}
+
+/* ---------------------- */
+/* 제목 스타일            */
+/* ---------------------- */
+h1 {
+    font-size: 32px;
+    color: #00eaff;
+    margin-bottom: 20px;
 }
 
 h2 {
     font-size: 26px;
-    margin-bottom: 12px;
-    color: #00c8ff;
+    color: #00eaff;
+    margin-bottom: 14px;
 }
 
-/* -----------------------------------------------------
-   CARDS
------------------------------------------------------ */
-.container {
-    width: 85%;
-    max-width: 1100px;
-    margin: 40px auto;
-}
-
-.card {
-    background: rgba(19,19,22,0.75);
-    padding: 28px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 20px rgba(0,214,255,0.06);
-    margin-top: 24px;
-}
-
-/* -----------------------------------------------------
-   TEXT / LISTS
------------------------------------------------------ */
 p {
     font-size: 18px;
-    margin-bottom: 12px;
-}
-
-ul {
-    list-style: none !important;
-}
-
-ul li {
-    margin: 8px 0;
-    font-size: 18px;
-}
-
-ul li::before {
-    content: none !important;
-}
-
-/* 링크 색 통일 */
-a:link, a:visited, a:hover, a:active {
-    color: #00eaff !important;
-    text-decoration: none !important;
+    margin-bottom: 10px;
 }
