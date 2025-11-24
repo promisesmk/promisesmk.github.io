@@ -11,111 +11,99 @@
     font-family: 'Pretendard', 'Inter', sans-serif;
 }
 
-/* ------------------------------
-   Body + Background
---------------------------------*/
+/* 전체 배경 */
 body {
     background: #0d0d0f;
     color: #e6e6e6;
     line-height: 1.6;
     padding-bottom: 50px;
 
-    background-image: url("../assets/background.jpg");
-    background-size: cover;
+    /* 배경 이미지 */
+    background-image: url("assets/background.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 90px;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 90px);
-    background: rgba(0, 0, 0, 0.55);
-    z-index: -1;
-}
-
 /* ------------------------------
-   NAVIGATION
+   NAVIGATION (Centered Layout)
 --------------------------------*/
 nav {
     width: 100%;
     background: #0d0d0f;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Nav 내부 정렬 컨테이너 */
-.nav-container {
-    width: 88%;
-    max-width: 1400px;
+/* nav 내부를 가운데 정렬하는 컨테이너 */
+.nav-content {
+    max-width: 1250px;
     margin: 0 auto;
+    padding: 15px 40px;
 
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 /* 로고 */
-.logo img {
-    height: 45px;
+nav .logo img {
+    height: 46px;
     width: auto;
     filter: drop-shadow(0 0 6px #00eaff);
 }
 
 /* 메뉴 */
-nav ul.menu {
+nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 28px;
 }
 
-nav ul.menu li a {
-    text-decoration: none;
+nav ul li {
+    margin: 0;
+}
+
+nav a {
     color: #cccccc;
+    text-decoration: none;
     font-size: 18px;
-    transition: 0.25s ease;
+    transition: 0.25s;
 }
 
-nav ul.menu li a:hover {
+nav a:hover {
     color: #00d4ff;
     text-shadow: 0 0 10px #00d4ff;
 }
 
 /* ------------------------------
-   CONTAINER
+   CONTAINER & CARD
 --------------------------------*/
 .container {
-    width: 88%;
+    width: 90%;
     max-width: 1100px;
-    margin: 40px auto;
+    margin: 60px auto;
 }
 
-/* 카드 */
 .card {
-    background: rgba(19,19,22,0.82);
+    background: rgba(13, 13, 15, 0.85);
     padding: 28px;
     margin-top: 24px;
     border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 0 22px rgba(0,214,255,0.07);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 22px rgba(0, 214, 255, 0.08);
 }
 
-/* ------------------------------
-   HEADINGS
---------------------------------*/
+/* HEADINGS */
 h1 {
-    text-align: center;
     font-size: 38px;
+    text-align: center;
     color: #00eaff;
-    margin-bottom: 12px;
     text-shadow: 0 0 10px #00eaff;
+    margin-bottom: 14px;
 }
 
 .page-subtitle {
@@ -130,32 +118,27 @@ h2 {
     margin-bottom: 12px;
 }
 
-/* ------------------------------
-   LIST STYLE
---------------------------------*/
+/* 리스트 스타일 */
 ul {
-    list-style: none;
     margin-top: 15px;
 }
 
 ul li {
-    margin: 10px 0;
-    padding-left: 8px;
+    margin: 8px 0;
     font-size: 18px;
 }
 
 ul li::before {
-    content: "✓ ";
+    content: "✓";
     color: #00eaff;
-    margin-right: 6px;
+    margin-right: 8px;
 }
 
-/* ------------------------------
-   LINKS
---------------------------------*/
+/* 링크 */
 a {
     color: #00eaff;
     text-decoration: none;
+    transition: 0.25s;
 }
 
 a:hover {
@@ -163,54 +146,15 @@ a:hover {
     text-shadow: 0 0 10px #6befff;
 }
 
-/* ------------------------------
-   CONTACT FORM
---------------------------------*/
-.contact-box {
-    padding: 20px;
-    background: rgba(17,17,20,0.82);
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-.contact-input,
-.contact-textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    background: #0d0d0f;
-    border: 1px solid #555;
-    color: #e6e6e6;
-    margin-bottom: 14px;
-}
-
-.contact-textarea {
-    height: 140px;
-    resize: vertical;
-}
-
-.contact-button {
-    width: 100%;
-    background: #00d4ff;
-    color: #000;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-/* ------------------------------
-   RESPONSIVE
---------------------------------*/
-@media (max-width: 700px) {
-    .nav-container {
+/* 반응형 */
+@media (max-width: 600px) {
+    .nav-content {
         flex-direction: column;
-        gap: 12px;
     }
 
-    nav ul.menu {
-        gap: 14px;
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
     }
 }
