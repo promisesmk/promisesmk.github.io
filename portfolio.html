@@ -9,7 +9,6 @@
 
 <body>
 
-<!-- Navigation -->
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -20,20 +19,76 @@
   </ul>
 </nav>
 
-<!-- Main Container -->
 <div class="container">
 
-  <h1 class="page-title">프로젝트 포트폴리오</h1>
-  <div class="page-subtitle">RF · BLE · Sensor · Mixed-Signal 기반 실제 상용 프로젝트 사례</div>
+  <h1 class="page-title">Project Portfolio</h1>
+  <div class="page-subtitle">최근 수행한 주요 하드웨어 개발 사례</div>
 
+  <!-- 코로나19 대응 온도 모니터링 장치 -->
+  <div class="section-title">📌 코로나19 대응 온도 모니터링 장치</div>
   <div class="card">
-    <h2 class="section-title">📁 주요 프로젝트 사례</h2>
+    <p>국가 재난대응에 사용된 BLE 기반 저전력 온도 모니터링 장치입니다.<br>
+      극저온 환경(-20℃ ~ -70℃)에서도 안정적으로 동작하도록 설계했습니다.</p>
     <ul>
-      <li><span class="icon">✔</span>BLE 기반 산업용 센서 디바이스 개발</li>
-      <li><span class="icon">✔</span>NFC & 13.56MHz 기반 태그 인식 시스템 설계</li>
-      <li><span class="icon">✔</span>고신뢰성 Mixed-Signal 회로 설계 및 양산 대응</li>
-      <li><span class="icon">✔</span>RF 출력 튜닝 및 안테나 매칭 최적화</li>
-      <li><span class="icon">✔</span>챔버 기반 RF 방사 테스트 및 인증 대응</li>
+      <li><span class="icon">✔</span>BLE 통신 모듈 (Nordic nRF52 Series)</li>
+      <li><span class="icon">✔</span>외부 온도 센싱 프로브 인터페이스</li>
+      <li><span class="icon">✔</span>저전력 펌웨어 최적화 구조</li>
+      <li><span class="icon">✔</span>KC 인증 대응 및 양산공급</li>
+    </ul>
+  </div>
+
+  <!-- 소방 장비용 인명구조 경보기 -->
+  <div class="section-title">📌 소방 장비용 인명구조 경보기(PASS)</div>
+  <div class="card">
+    <p>소방관을 위한 고출력 경보음(96dB) + 방수 구조의 인명구조 장비 개발 프로젝트입니다.<br>
+      충격/진동/고열 등 극한 환경 설계가 핵심이었습니다.</p>
+    <ul>
+      <li><span class="icon">✔</span>피에조 + 울림통 기반 경보 구조 설계</li>
+      <li><span class="icon">✔</span>OLED 상태 디스플레이 및 센서 연동</li>
+      <li><span class="icon">✔</span>완전 방수 기구 설계 대응</li>
+      <li><span class="icon">✔</span>IP67 환경시험 인증</li>
+    </ul>
+  </div>
+
+  <!-- Industrial Mixed-Signal Board -->
+  <div class="section-title">📌 Industrial Sensor Mixed-Signal Board</div>
+  <div class="card">
+    <p>반도체 장비용 고정밀 Mixed-Signal 센서보드를 개발하였습니다.<br>
+      고노이즈 환경에서도 높은 신뢰도의 데이터 획득이 가능합니다.</p>
+    <ul>
+      <li><span class="icon">✔</span>AFE(Analog Front-End) 설계</li>
+      <li><span class="icon">✔</span>고해상도 ADC 기반 신호 처리</li>
+      <li><span class="icon">✔</span>고정밀 MCU 기반 신호처리 구조</li>
+      <li><span class="icon">✔</span>EMI/ESD 대응 강화 PCB 설계</li>
+    </ul>
+  </div>
+
+  <!-- NFC 듀얼 안테나 시스템 -->
+  <div class="section-title">📌 NFC 125kHz + 13.56MHz 듀얼 안테나 시스템</div>
+  <div class="card">
+    <p>금속 환경에서도 안정적인 인식이 가능한 듀얼 주파수 NFC 시스템 개발 프로젝트입니다.</p>
+    <ul>
+      <li><span class="icon">✔</span>13.56MHz/125kHz 듀얼 안테나 설계</li>
+      <li><span class="icon">✔</span>데이터전송용 2.4GHz RF 연동</li>
+      <li><span class="icon">✔</span>Metal-compensation 설계</li>
+      <li><span class="icon">✔</span>RFID Reader 연동</li>
+      <li><span class="icon">✔</span>PCB 안테나 + 외장 코일 복합 구조</li>
+      <li><span class="icon">✔</span>NFC 태그 데이터를 RF 링크로 실시간 전송하는 무선 브릿징 구조 설계</li>
+    </ul>
+  </div>
+
+  <!-- Custom BLE Modules -->
+  <div class="section-title">📌 다수의 Custom BLE 모듈 개발</div>
+  <div class="card">
+    <p>소형·초저전력 BLE 모듈을 커스텀 PCB로 직접 설계하여 생산한 프로젝트입니다.<br>
+      RF 매칭, Full I/O 지원이 핵심이었습니다.</p>
+    <ul>
+      <li><span class="icon">✔</span>Nordic 기반 RF 프론트엔드</li>
+      <li><span class="icon">✔</span>ISM Band Any Vendor 2.4GHz IC 회로·PCB 설계</li>
+      <li><span class="icon">✔</span>안테나 패턴 최적화</li>
+      <li><span class="icon">✔</span>전원 효율 향상</li>
+      <li><span class="icon">✔</span>소형 2-layer/4-layer/Build-up PCB 모듈</li>
+      <li><span class="icon">✔</span>QFN·DFN·LGA Pads 설계</li>
     </ul>
   </div>
 
