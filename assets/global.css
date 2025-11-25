@@ -14,11 +14,11 @@ html, body {
     background: #000 !important;
     color: #fff !important;
     overflow-x: hidden;
-    padding-top: 80px;   /* fixed nav 공간 확보 */
+    padding-top: 80px; /* nav 고정 공간 확보 */
 }
 
 /* -----------------------------------------------------
-   BACKGROUND LAYER (PC & MOBILE fixed)
+   BACKGROUND (PC & MOBILE FIXED)
 ----------------------------------------------------- */
 .bg {
     position: fixed !important;
@@ -32,10 +32,10 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed !important; /* 모바일 강제 고정 */
+    background-attachment: fixed !important;
 }
 
-/* 어둡게 오버레이 */
+/* 어두운 오버레이 */
 .bg::after {
     content: "";
     position: absolute;
@@ -47,21 +47,25 @@ html, body {
     z-index: 1;
 }
 
+
 /* -----------------------------------------------------
    CONTENT LAYER
 ----------------------------------------------------- */
 .container, nav, .card, h1, h2, p, ul, li {
     position: relative;
-    z-index: 10;  /* 텍스트는 항상 배경보다 앞 */
+    z-index: 10;
 }
 
+
 /* -----------------------------------------------------
-   NAVIGATION — ALWAYS FIXED TOP
+   NAVIGATION (FIXED + FADE-IN)
 ----------------------------------------------------- */
+
+/* 네비 기본 구조 */
 nav {
     width: 100%;
     padding: 15px 0;
-    background: rgba(13,13,15,0.85);
+    background: rgba(13,13,15,0); /* 처음엔 완전 투명 */
     border-bottom: 1px solid rgba(255,255,255,0.08);
 
     position: fixed;
@@ -75,6 +79,14 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 40px;
+
+    transition: background 0.5s ease, padding 0.4s ease;
+}
+
+/* 스크롤이 1px만 내려가도 nav가 자연스럽게 나타남 */
+body.scrolled nav {
+    background: rgba(13,13,15,0.85);
+    padding: 13px 0;
 }
 
 /* 로고 */
@@ -83,9 +95,19 @@ nav .logo {
     left: 25px;
 }
 
+/* 로고 이미지 + 반짝임 효과 */
 nav .logo img {
     height: 42px;
+    animation: logoGlow 2.4s ease-in-out infinite;
 }
+
+/* 로고 반짝임 Keyframes */
+@keyframes logoGlow {
+    0% { filter: drop-shadow(0 0 0px #00eaff); }
+    50% { filter: drop-shadow(0 0 12px #00eaff); }
+    100% { filter: drop-shadow(0 0 0px #00eaff); }
+}
+
 
 /* 메뉴 */
 nav ul {
@@ -109,6 +131,7 @@ nav a:hover {
     text-shadow: 0 0 8px #00d4ff;
 }
 
+
 /* -----------------------------------------------------
    TITLES
 ----------------------------------------------------- */
@@ -124,6 +147,7 @@ h2 {
     margin-bottom: 12px;
     color: #00c8ff;
 }
+
 
 /* -----------------------------------------------------
    CARDS
@@ -143,8 +167,9 @@ h2 {
     margin-top: 24px;
 }
 
+
 /* -----------------------------------------------------
-   TEXT / LISTS
+   TEXT & LISTS
 ----------------------------------------------------- */
 p {
     font-size: 18px;
@@ -169,3 +194,8 @@ a:link, a:visited, a:hover, a:active {
     color: #00eaff !important;
     text-decoration: none !important;
 }
+
+
+/* -----------------------------------------------------
+   JS-FREE SCROLL DETECTION (CSS only companion)
+----------------------------------------------------- */
