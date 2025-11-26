@@ -4,34 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ★ SEO Title -->
   <title>기술 서비스 – 31NS-Tech Hardware Lab</title>
 
-  <!-- ★ Meta Description (본문 요약, 실제 내용은 수정 X) -->
-  <meta name="description" content="31NS-Tech Hardware Lab의 RF, BLE, NFC, Sensor, Mixed-Signal 기반 하드웨어 엔지니어링 서비스 페이지입니다. RF 설계, BLE 회로, NFC 시스템, Mixed-Signal AFE, 센서보드 개발, 양산 및 인증 대응 기술 서비스를 제공합니다.">
+  <meta name="description" content="31NS-Tech Hardware Lab의 RF, BLE, NFC, Sensor, Mixed-Signal 기반 하드웨어 개발 서비스를 소개합니다. RF 설계, BLE 모듈, NFC 회로, Mixed-Signal 센서보드, 양산 및 인증 대응까지 제공하는 엔지니어링 서비스 페이지입니다.">
 
-  <!-- ★ Keywords -->
-  <meta name="keywords" content="31NS-Tech, 기술 서비스, RF 설계, BLE 회로 개발, NFC 시스템, Mixed-Signal AFE, 센서보드 개발, 엔지니어링, 하드웨어 개발, PCB 설계">
-
-  <!-- ★ Open Graph (SNS/카톡 미리보기 최적화) -->
-  <meta property="og:title" content="기술 서비스 – 31NS-Tech Hardware Lab" />
-  <meta property="og:description" content="RF · BLE · NFC · Sensor · Mixed-Signal 기반 실전 엔지니어링 서비스" />
-  <meta property="og:url" content="https://31ns.kr/services.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/promisesmk/promisesmk.github.io/main/assets/Logo%2031NS-Tech.jpg" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="assets/global.css" />
 </head>
 
 <body>
   <div class="bg"></div>
 
-  <!-- Navigation -->
   <nav>
     <div class="logo">
         <a href="index.html">
             <img src="assets/Logo 31NS-Tech.jpg" alt="31NS-Tech Logo">
         </a>
+        <div class="menu-toggle" id="menuToggle">☰</div>
     </div>
 
     <ul>
@@ -43,85 +32,140 @@
     </ul>
   </nav>
 
-  <div class="container">
+  <main>
+    <section id="service-intro" class="section" style="padding-top: 50px;">
+        <div class="container">
+            <h1 class="page-title">기술 서비스</h1>
+            <div class="page-subtitle">RF · BLE · NFC · Sensor · Mixed-Signal 기반 실전 엔지니어링 서비스</div>
+        </div>
+    </section>
 
-    <h1 class="page-title">기술 서비스</h1>
-    <div class="page-subtitle">RF · BLE · NFC · Sensor · Mixed-Signal 기반 실전 엔지니어링 서비스</div>
+    <section id="core-services-list" class="section">
+        <div class="container">
+            <h2 class="section-title">📌 주요 제공 서비스</h2>
+            <div class="sub-card">
+              <ul>
+                <li>✔ RF · BLE · NFC 하드웨어 개발</li>
+                <li>✔ Mixed-Signal Analog Front-End 설계</li>
+                <li>✔ BLE RF 회로 설계 및 안테나 매칭</li>
+                <li>✔ 산업용 Sensor 시스템 개발</li>
+                <li>✔ 양산 문제 해결 및 공정 최적화</li>
+                <li>✔ KC / FCC / CE 인증 대응 기술 지원</li>
+              </ul>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="section-title">📌 주요 제공 서비스</h2>
-    <div class="card">
-      <ul>
-        <li>✔ RF · BLE · NFC 하드웨어 개발</li>
-        <li>✔ Mixed-Signal Analog Front-End 설계</li>
-        <li>✔ BLE RF 회로 설계 및 안테나 매칭</li>
-        <li>✔ 산업용 Sensor 시스템 개발</li>
-        <li>✔ 양산 문제 해결 및 공정 최적화</li>
-        <li>✔ KC / FCC / CE 인증 대응 기술 지원</li>
-      </ul>
-    </div>
+    <section id="rf-tuning" class="section">
+        <div class="container">
+            <h2 class="section-title">📡 RF 설계 & 튜닝</h2>
+            <div class="sub-card">
+              <p>
+                31NS-Tech Lab은 <span class="highlight">2.4GHz ISM Band RF 회로 설계 및 RF 튜닝 전문가</span>입니다.
+                스펙트럼 분석 · 챔버 안테나 매칭까지 고성능 RF 최적화를 제공합니다.
+              </p>
+              <ul>
+                <li>✔ 2.4GHz RF 송수신 회로 설계</li>
+                <li>✔ 임피던스 매칭 / 안테나 매칭(S11, VNA 기반)</li>
+                <li>✔ 노이즈 억제 및 EMI 개선</li>
+                <li>✔ PA / LNA / 필터 튜닝</li>
+              </ul>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="section-title">📡 RF 설계 & 튜닝</h2>
-    <div class="card">
-      <p>
-        31NS-Tech Lab은 <span class="highlight">2.4GHz ISM Band RF 회로 설계 및 RF 튜닝 전문가</span>입니다.
-        스펙트럼 분석 · 챔버 안테나 매칭까지 고성능 RF 최적화를 제공합니다.
-      </p>
-      <ul>
-        <li>✔ 2.4GHz RF 송수신 회로 설계</li>
-        <li>✔ 임피던스 매칭 / 안테나 매칭(S11, VNA 기반)</li>
-        <li>✔ 노이즈 억제 및 EMI 개선</li>
-        <li>✔ PA / LNA / 필터 튜닝</li>
-      </ul>
-    </div>
+    <section id="ble-hardware" class="section">
+        <div class="container">
+            <h2 class="section-title">📶 BLE / Wireless Hardware</h2>
+            <div class="sub-card">
+              <p>
+                Nordic 기반 BLE 디바이스 회로 설계 및 모듈 개발을 지원합니다.
+                nRF52 기반 저전력 제품 개발 경험이 풍부합니다.
+              </p>
+              <ul>
+                <li>✔ Nordic nRFxx 기반 회로 설계</li>
+                <li>✔ 안테나 성능 튜닝 & 전력 최적화</li>
+                <li>✔ 커스텀 BLE 모듈 설계</li>
+                <li>✔ 전력 소모 개선 / 배터리 최적화</li>
+              </ul>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="section-title">📶 BLE / Wireless Hardware</h2>
-    <div class="card">
-      <p>
-        Nordic 기반 BLE 디바이스 회로 설계 및 모듈 개발을 지원합니다.
-        nRF52 기반 저전력 제품 개발 경험이 풍부합니다.
-      </p>
-      <ul>
-        <li>✔ Nordic nRFxx 기반 회로 설계</li>
-        <li>✔ 안테나 성능 튜닝 & 전력 최적화</li>
-        <li>✔ 커스텀 BLE 모듈 설계</li>
-        <li>✔ 전력 소모 개선 / 배터리 최적화</li>
-      </ul>
-    </div>
+    <section id="nfc-hardware" class="section">
+        <div class="container">
+            <h2 class="section-title">📲 NFC / RFID Hardware</h2>
+            <div class="sub-card">
+              <p>RFID / NFC 기반 시스템 개발 및 듀얼 주파수(125kHz + 13.56MHz) 설계를 지원합니다.</p>
+              <ul>
+                <li>✔ 125kHz 저주파 RFID 설계</li>
+                <li>✔ 13.56MHz NFC 회로 설계 및 튜닝</li>
+                <li>✔ 듀얼 안테나 시스템 개발</li>
+                <li>✔ 금속 환경 대응 NFC 설계</li>
+              </ul>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="section-title">📲 NFC / RFID Hardware</h2>
-    <div class="card">
-      <p>RFID / NFC 기반 시스템 개발 및 듀얼 주파수(125kHz + 13.56MHz) 설계를 지원합니다.</p>
-      <ul>
-        <li>✔ 125kHz 저주파 RFID 설계</li>
-        <li>✔ 13.56MHz NFC 회로 설계 및 튜닝</li>
-        <li>✔ 듀얼 안테나 시스템 개발</li>
-        <li>✔ 금속 환경 대응 NFC 설계</li>
-      </ul>
-    </div>
+    <section id="mixed-signal" class="section">
+        <div class="container">
+            <h2 class="section-title">🧪 Mixed-Signal Sensor Boards</h2>
+            <div class="sub-card">
+              <p>산업·의료·반도체 장비용 Mixed-Signal 센서보드를 직접 개발합니다.</p>
+              <ul>
+                <li>✔ 아날로그 프론트엔드(AFE) 설계</li>
+                <li>✔ 고해상도 센서 인터페이스 설계</li>
+                <li>✔ 신호 증폭 / 필터링 / ADC 최적화</li>
+                <li>✔ MCU 기반 고속·정밀 측정</li>
+              </ul>
+            </div>
+        </div>
+    </section>
 
-    <h2 class="section-title">🧪 Mixed-Signal Sensor Boards</h2>
-    <div class="card">
-      <p>산업·의료·반도체 장비용 Mixed-Signal 센서보드를 직접 개발합니다.</p>
-      <ul>
-        <li>✔ 아날로그 프론트엔드(AFE) 설계</li>
-        <li>✔ 고해상도 센서 인터페이스 설계</li>
-        <li>✔ 신호 증폭 / 필터링 / ADC 최적화</li>
-        <li>✔ MCU 기반 고속·정밀 측정</li>
-      </ul>
-    </div>
+    <section id="production-cert" class="section" style="border-bottom: none;">
+        <div class="container">
+            <h2 class="section-title">🏭 양산 · 테스트 · 인증</h2>
+            <div class="sub-card">
+              <p>개발 완료 후 양산 안정화를 위한 전 과정을 지원합니다.</p>
+              <ul>
+                <li>✔ 양산용 DFM 설계</li>
+                <li>✔ 부품 선정 및 최적 BOM 구성</li>
+                <li>✔ 양산 이슈 대응</li>
+                <li>✔ KC/FCC/CE 인증 가이드</li>
+              </ul>
+            </div>
+        </div>
+    </section>
+  </main>
+  
+  <script>
+    const nav = document.querySelector('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    const ulMenu = nav.querySelector('ul');
 
-    <h2 class="section-title">🏭 양산 · 테스트 · 인증</h2>
-    <div class="card">
-      <p>개발 완료 후 양산 안정화를 위한 전 과정을 지원합니다.</p>
-      <ul>
-        <li>✔ 양산용 DFM 설계</li>
-        <li>✔ 부품 선정 및 최적 BOM 구성</li>
-        <li>✔ 양산 이슈 대응</li>
-        <li>✔ KC/FCC/CE 인증 가이드</li>
-      </ul>
-    </div>
+    // 햄버거 메뉴 토글 기능
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('nav-open');
+    });
+    
+    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+    ulMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('nav-open');
+            }
+        });
+    });
 
-  </div>
+    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 1) {
+            document.body.classList.add('scrolled');
+        } else {
+            document.body.classList.remove('scrolled');
+        }
+    });
+  </script>
 
 </body>
 </html>
