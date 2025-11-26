@@ -6,7 +6,7 @@
 
   <title>RF·BLE·NFC,전자회로,2.4G RF튜닝,안테나메칭,HW,PCB설계</title>
 
-  <meta name="description" content="RF·BLE·NFC·디지털회로설계, 센서보드, PCB 설계, RF 튜닝,안테나메칭,하드웨어,제품개발,KC·FCC·CE인증">
+  <meta name="description" content="31NS-Tech: RF/BLE/NFC/Mixed-Signal HW 개발, 20년 경력 RF튜닝, 안테나매칭, 양산/인증(KC/FCC/CE) 전문가.">
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="RF·BLE·NFC,전자회로,2.4G RF튜닝,안테나메칭,HW,PCB설계" />
@@ -116,31 +116,36 @@
   </main>
   
   <script>
-    const nav = document.querySelector('nav');
-    const menuToggle = document.getElementById('menuToggle');
-    const ulMenu = nav.querySelector('ul');
+    // 스크립트 안정성 강화: DOM 로딩 후 실행 및 null 체크
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const nav = document.querySelector('nav');
+        const menuToggle = document.getElementById('menuToggle');
+        const ulMenu = nav.querySelector('ul');
+        
+        if (menuToggle) {
+            // 햄버거 메뉴 토글 기능
+            menuToggle.addEventListener('click', function() {
+              nav.classList.toggle('nav-open');
+            });
+            
+            // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+            ulMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('nav-open');
+                    }
+                });
+            });
+        }
 
-    // 햄버거 메뉴 토글 기능
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('nav-open');
-    });
-    
-    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
-    ulMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('nav-open');
+        // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 1) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
             }
         });
-    });
-
-    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 1) {
-            document.body.classList.add('scrolled');
-        } else {
-            document.body.classList.remove('scrolled');
-        }
     });
   </script>
 
