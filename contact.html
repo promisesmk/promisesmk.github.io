@@ -6,7 +6,7 @@
 
   <title>Contact – 31NS-Tech Hardware Lab</title>
 
-  <meta name="description" content="31NS-Tech Hardware Lab의 프로젝트 의뢰, RF·BLE·NFC·센서·Mixed-Signal 회로 설계 및 기술 상담 문의 페이지입니다. 이메일 및 기술 협업 상담 정보를 확인하세요.">
+  <meta name="description" content="RF/BLE/NFC/Mixed-Signal HW 프로젝트 의뢰 및 기술 상담 문의. 31NS-Tech Hardware Lab 이메일 및 위치 안내.">
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact – 31NS-Tech Hardware Lab" />
@@ -90,31 +90,36 @@
   </main>
   
   <script>
-    const nav = document.querySelector('nav');
-    const menuToggle = document.getElementById('menuToggle');
-    const ulMenu = nav.querySelector('ul');
+    // 스크립트 안정성 강화: DOM 로딩 후 실행 및 null 체크
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const nav = document.querySelector('nav');
+        const menuToggle = document.getElementById('menuToggle');
+        const ulMenu = nav.querySelector('ul');
+        
+        if (menuToggle) {
+            // 햄버거 메뉴 토글 기능
+            menuToggle.addEventListener('click', function() {
+              nav.classList.toggle('nav-open');
+            });
+            
+            // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+            ulMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('nav-open');
+                    }
+                });
+            });
+        }
 
-    // 햄버거 메뉴 토글 기능
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('nav-open');
-    });
-    
-    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
-    ulMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('nav-open');
+        // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 1) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
             }
         });
-    });
-
-    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 1) {
-            document.body.classList.add('scrolled');
-        } else {
-            document.body.classList.remove('scrolled');
-        }
     });
   </script>
 
