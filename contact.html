@@ -4,34 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ★ SEO Title -->
   <title>Contact – 31NS-Tech Hardware Lab</title>
 
-  <!-- ★ Meta Description -->
-  <meta name="description" content="31NS-Tech Hardware Lab의 프로젝트 의뢰, 기술 상담, RF·BLE·NFC·Mixed-Signal 설계 문의 페이지입니다. 하드웨어 개발 및 엔지니어링 협업을 이메일로 상담할 수 있습니다.">
+  <meta name="description" content="31NS-Tech Hardware Lab의 프로젝트 의뢰, RF·BLE·NFC·센서·Mixed-Signal 회로 설계 및 기술 상담 문의 페이지입니다. 이메일 및 기술 협업 상담 정보를 확인하세요.">
 
-  <!-- ★ Keywords -->
-  <meta name="keywords" content="31NS-Tech, Contact, 기술 문의, RF 설계, BLE 개발, NFC 회로, Mixed-Signal, 센서보드, 하드웨어 개발, 엔지니어링">
-
-  <!-- ★ Open Graph (SNS/카톡 미리보기 최적화) -->
-  <meta property="og:title" content="Contact – 31NS-Tech Hardware Lab" />
-  <meta property="og:description" content="프로젝트 의뢰 · 기술 상담 · RF/BLE/NFC/Sensor 개발 문의" />
-  <meta property="og:url" content="https://31ns.kr/contact.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://raw.githubusercontent.com/promisesmk/promisesmk.github.io/main/assets/Logo%2031NS-Tech.jpg" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="assets/global.css" />
 </head>
 
 <body>
   <div class="bg"></div>
 
-  <!-- Navigation -->
   <nav>
     <div class="logo">
         <a href="index.html">
             <img src="assets/Logo 31NS-Tech.jpg" alt="31NS-Tech Logo">
         </a>
+        <div class="menu-toggle" id="menuToggle">☰</div>
     </div>
 
     <ul>
@@ -43,43 +32,85 @@
     </ul>
   </nav>
 
-  <!-- Main Container -->
-  <div class="container">
+  <main>
+    <section id="contact-intro" class="section" style="padding-top: 50px;">
+        <div class="container">
+            <h1 class="page-title">Contact</h1>
+            <div class="page-subtitle">프로젝트 의뢰 · 기술 상담 · 협업 문의</div>
+        </div>
+    </section>
 
-    <h1 class="page-title">Contact</h1>
-    <div class="page-subtitle">프로젝트 의뢰 · 기술 상담 · 협업 문의</div>
+    <section id="inquiry-guide" class="section">
+        <div class="container">
+            <h2 class="section-title">📨 문의 안내</h2>
+            <div class="sub-card">
+              <p>
+                31NS-Tech Hardware Lab은 RF · BLE · NFC · 센서 · Mixed-Signal  
+                하드웨어 기반의 실전형 엔지니어링 프로젝트를 수행합니다.
+              </p>
+              <p>
+                회로설계, RF 튜닝, 제품 개발, 인증 대응, 양산 기술지원 등  
+                상담이 필요하신 경우 아래 연락처로 문의해주세요.
+              </p>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <h2 class="section-title">📨 문의 안내</h2>
-      <p>
-        31NS-Tech Hardware Lab은 RF · BLE · NFC · 센서 · Mixed-Signal  
-        하드웨어 기반의 실전형 엔지니어링 프로젝트를 수행합니다.
-      </p>
-      <p>
-        회로설계, RF 튜닝, 제품 개발, 인증 대응, 양산 기술지원 등  
-        상담이 필요하신 경우 아래 연락처로 문의해주세요.
-      </p>
-    </div>
+    <section id="contact-details" class="section">
+        <div class="container">
+            <h2 class="section-title">📧 연락처 정보</h2>
+            <div class="sub-card">
+              <ul>
+                <li>✔ Email-1 : promisesmk@gmail.com</li>
+                <li>✔ Email-2 : nskim@31ns.kr</li>
+                <li>✔ Location : Gwangmyeong-si, Gyeonggi-do, Republic of Korea</li>
+              </ul>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-      <h2 class="section-title">📧 연락처 정보</h2>
-      <ul>
-        <li>✔ Email-1 : promisesmk@gmail.com</li>
-        <li>✔ Email-2 : nskim@31ns.kr</li>
-        <li>✔ Location : Gwangmyeong-si, Gyeonggi-do, Republic of Korea</li>
-      </ul>
-    </div>
+    <section id="preparation" class="section" style="border-bottom: none;">
+        <div class="container">
+            <h2 class="section-title">🛠 문의 시 준비하시면 좋아요</h2>
+            <div class="sub-card">
+              <ul>
+                <li>필요 기능 또는 문제점 요약</li>
+                <li>대략적인 사용 환경 (온도·전원·거리·RF 조건 등)</li>
+                <li>예상 일정 / 목표 스펙</li>
+              </ul>
+            </div>
+        </div>
+    </section>
+  </main>
+  
+  <script>
+    const nav = document.querySelector('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    const ulMenu = nav.querySelector('ul');
 
-    <div class="card">
-      <h2 class="section-title">🛠 문의 시 준비하시면 좋아요</h2>
-      <ul>
-        <li>필요 기능 또는 문제점 요약</li>
-        <li>대략적인 사용 환경 (온도·전원·거리·RF 조건 등)</li>
-        <li>예상 일정 / 목표 스펙</li>
-      </ul>
-    </div>
+    // 햄버거 메뉴 토글 기능
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('nav-open');
+    });
+    
+    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+    ulMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('nav-open');
+            }
+        });
+    });
 
-  </div>
+    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 1) {
+            document.body.classList.add('scrolled');
+        } else {
+            document.body.classList.remove('scrolled');
+        }
+    });
+  </script>
 
 </body>
 </html>
