@@ -6,7 +6,7 @@
 
   <title>About – 31NS-Tech Hardware Lab</title>
 
-  <meta name="description" content="31NS-Tech Hardware Lab은 RF, BLE, NFC, Sensor, Mixed-Signal 기반 하드웨어 개발을 전문으로 하는 연구소입니다. 회로 설계, RF 튜닝, Mixed-Signal AFE, 센서보드 설계 등 다양한 산업 분야 경험을 바탕으로 실전 중심의 Total Engineering Solution을 제공합니다.">
+  <meta name="description" content="31NS-Tech Hardware Lab: RF/BLE/NFC/Mixed-Signal HW 개발 전문. 20년 경력 실전 중심 Total Engineering Solution 제공.">
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="About – 31NS-Tech Hardware Lab" />
@@ -86,7 +86,7 @@
             <div class="sub-card">
               <ul>
                 <li>✔ 2.4GHz ISM Band RF 회로 설계 및 최적화</li>
-                <li>✔ Nordic 기반 BLE 모듈 HW 개발 및 튜닝</li>
+                <li>✔ Nordic nRFxx 기반 BLE 모듈 HW 개발 및 튜닝</li>
                 <li>✔ 13.56MHz + 125kHz 복합 NFC 회로 설계</li>
                 <li>✔ 임피던스 매칭 · 안테나 매칭 · RF 튜닝</li>
                 <li>✔ Mixed-Signal 센서보드 개발</li>
@@ -119,31 +119,36 @@
   </main>
 
   <script>
-    const nav = document.querySelector('nav');
-    const menuToggle = document.getElementById('menuToggle');
-    const ulMenu = nav.querySelector('ul');
+    // 스크립트 안정성 강화: DOM 로딩 후 실행 및 null 체크
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const nav = document.querySelector('nav');
+        const menuToggle = document.getElementById('menuToggle');
+        const ulMenu = nav.querySelector('ul');
+        
+        if (menuToggle) {
+            // 햄버거 메뉴 토글 기능
+            menuToggle.addEventListener('click', function() {
+              nav.classList.toggle('nav-open');
+            });
+            
+            // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+            ulMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('nav-open');
+                    }
+                });
+            });
+        }
 
-    // 햄버거 메뉴 토글 기능
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('nav-open');
-    });
-    
-    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
-    ulMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('nav-open');
+        // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 1) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
             }
         });
-    });
-
-    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 1) {
-            document.body.classList.add('scrolled');
-        } else {
-            document.body.classList.remove('scrolled');
-        }
     });
   </script>
 
