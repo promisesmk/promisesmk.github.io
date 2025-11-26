@@ -1,5 +1,5 @@
 /* -----------------------------------------------------
-   RESET & BASE
+    RESET & BASE
 ----------------------------------------------------- */
 * {
     margin: 0;
@@ -18,7 +18,7 @@ html, body {
 }
 
 /* -----------------------------------------------------
-   BACKGROUND & OVERLAY
+    BACKGROUND & OVERLAY
 ----------------------------------------------------- */
 .bg {
     position: fixed;
@@ -27,7 +27,7 @@ html, body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-image: url("background.jpg"); 
+    background-image: url("bg-index.png"); /* index 페이지 기본 배경 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -45,9 +45,32 @@ html, body {
     z-index: 1;
 }
 
+/* -----------------------------------------------------
+    PAGE SPECIFIC BACKGROUNDS (추가된 코드)
+----------------------------------------------------- */
+/* About 페이지 (bg-about.png) */
+body.page-about .bg {
+    background-image: url("bg-about.png");
+}
+
+/* Contact 페이지 (bg-contact.png) */
+body.page-contact .bg {
+    background-image: url("bg-contact.png");
+}
+
+/* Portfolio 페이지 (bg-portfolio.png) */
+body.page-portfolio .bg {
+    background-image: url("bg-portfolio.png");
+}
+
+/* Services 페이지 (bg-services.png) */
+body.page-services .bg {
+    background-image: url("bg-services.png");
+}
+
 
 /* -----------------------------------------------------
-   NAVIGATION (Neon Glow Logo + Fixed + Responsive)
+    NAVIGATION (Neon Glow Logo + Fixed + Responsive)
 ----------------------------------------------------- */
 
 nav {
@@ -123,7 +146,7 @@ nav a:hover {
 
 
 /* -----------------------------------------------------
-   LAYOUT & CONTAINER (GVCC 스타일 핵심)
+    LAYOUT & CONTAINER (GVCC 스타일 핵심)
 ----------------------------------------------------- */
 .container {
     width: 90%;
@@ -140,7 +163,7 @@ nav a:hover {
 }
 
 /* -----------------------------------------------------
-   TYPOGRAPHY
+    TYPOGRAPHY
 ----------------------------------------------------- */
 
 .page-title {
@@ -185,7 +208,7 @@ h2.section-title {
 
 
 /* -----------------------------------------------------
-   CARD & ICON STYLES (GVCC 스타일 핵심)
+    CARD & ICON STYLES (GVCC 스타일 핵심)
 ----------------------------------------------------- */
 
 /* Sub Page Card (about, services, portfolio) */
@@ -291,7 +314,7 @@ h2.section-title {
 
 
 /* -----------------------------------------------------
-   MEDIA QUERIES (모바일 최적화)
+    MEDIA QUERIES (모바일 최적화)
 ----------------------------------------------------- */
 
 @media screen and (max-width: 768px) {
