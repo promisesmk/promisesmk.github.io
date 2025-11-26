@@ -27,32 +27,11 @@ html, body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    /* background-image: url("background.jpg");  <-- 기본 배경 제거 */
+    background-image: url("background.jpg"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-/* 개별 페이지 배경 이미지 설정 */
-.home-page .bg {
-    background-image: url("bg-index.png");
-}
-
-.about-page .bg {
-    background-image: url("bg-about.png");
-}
-
-.services-page .bg {
-    background-image: url("bg-services.png");
-}
-
-.portfolio-page .bg {
-    background-image: url("bg-portfolio.png");
-}
-
-.contact-page .bg {
-    background-image: url("bg-contact.png");
 }
 
 .bg::after {
@@ -74,249 +53,307 @@ html, body {
 nav {
     width: 100%;
     padding: 15px 0;
-    background: rgba(13,13,15,0);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(13,13,15,0.9); 
+    color: #fff;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
-    backdrop-filter: blur(6px);
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    transition: background 0.5s ease, padding 0.4s ease;
+    transition: background 0.3s, padding 0.3s;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 body.scrolled nav {
-    background: rgba(13,13,15,0.95); 
-    padding: 13px 0;
+    background: rgba(13,13,15,0.95);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav .logo {
     position: absolute;
-    left: 25px;
+    left: 20px;
 }
 
 nav .logo img {
-    height: 42px;
-    animation: neonPulse 2.0s ease-in-out infinite alternate; 
-    box-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
-}
-
-@keyframes neonPulse {
-    0% { 
-        filter: drop-shadow(0 0 2px #00eaff); 
-        opacity: 0.8;
-    }
-    50% { 
-        filter: drop-shadow(0 0 18px #00eaff); 
-        opacity: 1;
-    }
-    100% { 
-        filter: drop-shadow(0 0 6px #00eaff);
-        opacity: 0.85;
-    }
+    height: 40px; 
+    width: auto;
+    /* 네온 효과 */
+    box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+    border-radius: 5px;
 }
 
 nav ul {
-    display: flex;
     list-style: none;
-    gap: 30px;
+    display: flex;
+    gap: 35px;
+    padding-right: 200px; 
 }
 
-nav a {
-    font-size: 18px;
-    color: #ccc;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 0;
     transition: color 0.3s, text-shadow 0.3s;
 }
 
-nav a:hover {
-    color: #00d4ff;
-    text-shadow: 0 0 8px #00d4ff;
+nav ul li a:hover {
+    color: #00eaff; 
+    text-shadow: 0 0 5px #00eaff;
 }
 
-/* 모바일 메뉴 토글 버튼 (PC에서 숨김) */
 .menu-toggle {
     display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
 }
 
 
 /* -----------------------------------------------------
-   LAYOUT & CONTAINER (GVCC 스타일 핵심)
+   MAIN CONTENT & LAYOUT
 ----------------------------------------------------- */
-.container {
-    width: 90%;
-    max-width: 1200px; /* 넓은 레이아웃 */
-    margin: 0 auto;
+
+main {
     position: relative;
-    z-index: 10;
+    z-index: 5;
+    padding-top: 30px; 
+    padding-bottom: 50px; 
 }
 
-/* 각 섹션 분리 강조 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .section {
-    padding: 80px 0; /* 상하 여백 증가 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* 얇은 경계선 */
+    padding: 80px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-/* -----------------------------------------------------
-   TYPOGRAPHY
------------------------------------------------------ */
 
 .page-title {
-    font-size: 48px; /* 메인 타이틀 크기 증가 */
+    font-size: 48px;
     font-weight: 700;
+    color: #fff;
     text-align: center;
-    margin-bottom: 20px;
-    color: #00eaff;
-    text-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
+    margin-bottom: 10px;
+    /* 네온 효과 */
+    text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff80;
 }
 
 .page-subtitle {
-    text-align: center;
     font-size: 20px;
-    color: #999;
-    margin-bottom: 60px;
-    font-weight: 300;
-    line-height: 1.6;
-}
-
-h2.section-title {
-    font-size: 32px;
-    font-weight: 600;
+    color: #ccc;
     text-align: center;
-    color: #fff;
-    margin-bottom: 15px;
-    /* 서브 페이지에서는 왼쪽 정렬 */
-    text-align: left; 
-}
-.section h2.section-title {
-    /* 메인 섹션 제목은 중앙 정렬 */
-    text-align: center; 
+    margin-bottom: 50px;
+    line-height: 1.5;
 }
 
+.section-title {
+    font-size: 32px;
+    color: #00eaff;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 0 0 5px #00eaff40;
+}
 
 .section-tagline {
-    text-align: center;
     font-size: 18px;
-    color: #aaa;
+    color: #999;
+    text-align: center;
     margin-bottom: 40px;
 }
 
+.highlight {
+    color: #00eaff;
+    font-weight: 600;
+}
 
-/* -----------------------------------------------------
-   CARD & ICON STYLES (GVCC 스타일 핵심)
------------------------------------------------------ */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #00eaff;
+    color: #000 !important; 
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 10px #00eaff80;
+}
 
-/* Sub Page Card (about, services, portfolio) */
+.cta-button:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 234, 255, 0.4);
+}
+
+
+/* Sub-Card Style */
 .sub-card {
-    background: rgba(19,19,22,0.85); 
-    padding: 35px;
+    background: rgba(19,19,22,0.8);
+    border: 1px solid rgba(0, 234, 255, 0.2);
     border-radius: 8px;
-    border-top: 5px solid #00eaff;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
     margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    line-height: 1.7;
 }
 .sub-card h2 {
-    font-size: 26px;
     color: #00eaff;
+    margin-top: 0;
+}
+.sub-card p {
+    color: #ccc;
     margin-bottom: 15px;
 }
 .sub-card ul {
-    margin-top: 10px;
-    padding-left: 20px;
-    list-style: none; /* 기본 불릿 제거 */
+    list-style: none;
+    padding-left: 0;
 }
 .sub-card ul li {
-    font-size: 17px;
-    color: #ccc;
-    line-height: 1.8;
-    position: relative;
+    color: #ddd;
+    margin-bottom: 8px;
     padding-left: 20px;
+    position: relative;
 }
 .sub-card ul li::before {
-    content: "•"; /* 커스텀 불릿 사용 */
+    content: "•";
     color: #00eaff;
     font-weight: bold;
-    display: inline-block; 
+    display: inline-block;
     width: 1em;
     margin-left: -1em;
 }
 
 
-/* Main Index Page Grid */
+/* Service Grid (Index Page) */
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 40px;
 }
 
 .service-card {
-    background: rgba(19,19,22,0.85); 
-    padding: 40px 25px;
+    background: rgba(19,19,22,0.8);
+    border: 1px solid rgba(0, 234, 255, 0.3);
     border-radius: 8px;
-    border-top: 5px solid #00eaff; 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px 30px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 214, 255, 0.2); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 234, 255, 0.15);
 }
 
 .card-icon {
-    font-size: 48px;
+    font-size: 40px;
     color: #00eaff;
     margin-bottom: 15px;
+    text-shadow: 0 0 5px #00eaff;
 }
 
 .service-card h3 {
     font-size: 22px;
     color: #fff;
     margin-bottom: 10px;
-    font-weight: 600;
 }
 
 .service-card p {
-    font-size: 16px;
     color: #ccc;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
 }
-
-/* Call to Action Button */
-.cta-button {
-    display: inline-block;
-    padding: 15px 35px;
-    background: linear-gradient(90deg, #00eaff, #00c8ff);
-    color: #000;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-top: 20px;
-    transition: opacity 0.3s;
-}
-.cta-button:hover {
-    opacity: 0.9;
-    color: #000 !important;
-}
-
-.highlight {
-    color: #00eaff;
-    font-weight: bold;
-}
-
 
 /* -----------------------------------------------------
-   MEDIA QUERIES (모바일 최적화)
+   FOOTER (새로 추가됨: 31NS-Tech Hardware Lab)
+----------------------------------------------------- */
+.footer {
+    padding: 40px 0;
+    margin-top: 50px;
+    background: rgba(13, 13, 15, 0.95); /* 배경색을 살짝 진하게 하여 콘텐츠를 구분 */
+    border-top: 2px solid rgba(0, 234, 255, 0.2); /* 네온 느낌의 구분선 */
+    color: #ccc;
+    text-align: center;
+    font-size: 14px;
+    position: relative; /* 배경 위에 명확히 구분되도록 설정 */
+    z-index: 10;
+}
+
+.footer .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    flex-wrap: wrap; /* 반응형 대응 */
+}
+
+.footer-section {
+    width: 30%;
+    min-width: 200px; /* 모바일에서 겹치지 않도록 최소 너비 설정 */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    color: #00eaff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 234, 255, 0.1);
+    padding-bottom: 5px;
+    text-shadow: 0 0 3px #00eaff40;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #00eaff;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer .copyright {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 12px;
+    color: #666;
+}
+
+/* -----------------------------------------------------
+   RESPONSIVE DESIGN (모바일)
 ----------------------------------------------------- */
 
-@media screen and (max-width: 768px) {
-    
+@media (max-width: 768px) {
+    /* 기존 스타일 유지 */
     html, body {
         padding-top: 60px; 
     }
@@ -372,30 +409,46 @@ h2.section-title {
         align-items: center;
     }
     nav .logo img {
-        height: 38px; 
+        height: 35px;
     }
     nav ul {
-        display: none; 
-        width: 100%;
         flex-direction: column;
+        padding: 0 20px;
         gap: 0;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255,255,255,0.08);
-        margin-top: 10px;
+        width: 100%;
+        display: none;
     }
     nav.nav-open ul {
         display: flex;
-    }
-    nav a {
         padding: 10px 20px;
     }
-    .menu-toggle {
-        display: block; 
-        color: #00eaff;
-        font-size: 28px;
-        line-height: 1;
-        cursor: pointer;
-        padding-right: 20px;
+    nav ul li {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+    nav ul li a {
+        display: block;
+        padding: 10px 0;
+    }
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 푸터 모바일 반응형 */
+    .footer-section {
+        width: 100%;
+        min-width: unset;
+        text-align: center;
+    }
+    .footer-section h3 {
+        text-align: center;
+    }
+    .footer-section ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer-section ul li {
+        margin: 0 10px 5px;
+    }
 }
