@@ -27,11 +27,32 @@ html, body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-image: url("background.jpg"); 
+    /* background-image: url("background.jpg");  <-- 기본 배경 제거 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+/* 개별 페이지 배경 이미지 설정 */
+.home-page .bg {
+    background-image: url("bg-index.png");
+}
+
+.about-page .bg {
+    background-image: url("bg-about.png");
+}
+
+.services-page .bg {
+    background-image: url("bg-services.png");
+}
+
+.portfolio-page .bg {
+    background-image: url("bg-portfolio.png");
+}
+
+.contact-page .bg {
+    background-image: url("bg-contact.png");
 }
 
 .bg::after {
