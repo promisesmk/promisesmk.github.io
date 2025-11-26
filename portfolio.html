@@ -6,19 +6,13 @@
 
   <title>Project Portfolio – 31NS-Tech Hardware Lab</title>
 
-  <meta name="description" content="BLE 모니터링, 소방 PASS 장비, Mixed-Signal 센서, NFC 듀얼 안테나 등 31NS-Tech의 핵심 RF/HW 프로젝트 포트폴리오.">
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Project Portfolio – 31NS-Tech Hardware Lab" />
-  <meta property="og:description" content="BLE 온도 모니터링, PASS 장비, Mixed-Signal 센서보드, NFC 듀얼 안테나 등 31NS-Tech의 핵심 RF·HW 개발 프로젝트 사례를 확인하세요." />
-  <meta property="og:url" content="https://31ns.kr/portfolio.html" />
-  <meta property="og:image" content="assets/Logo 31NS-Tech.jpg" />
+  <meta name="description" content="31NS-Tech Hardware Lab의 최근 하드웨어 개발 포트폴리오입니다. BLE 온도 모니터링 장치, 소방용 PASS 장비, Mixed-Signal 센서보드, NFC 듀얼 안테나 시스템, 커스텀 BLE 모듈 등 다양한 RF·BLE·NFC·Sensor 기반 프로젝트 사례를 소개합니다.">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="assets/global.css" />
 </head>
 
-<body class="portfolio-page">
+<body>
   <div class="bg"></div>
 
   <nav>
@@ -46,7 +40,7 @@
         </div>
     </section>
 
-    <section id="portfolio-list" class="container">
+    <section id="portfolio-list" class="container" style="border-bottom: none;">
 
       <h2 class="section-title">📌 코로나19 대응 온도 모니터링 장치</h2>
       <div class="sub-card">
@@ -128,37 +122,71 @@
     </section>
   </main>
   
-  <script>
-    // 스크립트 안정성 강화: DOM 로딩 후 실행 및 null 체크
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const nav = document.querySelector('nav');
-        const menuToggle = document.getElementById('menuToggle');
-        const ulMenu = nav.querySelector('ul');
-        
-        if (menuToggle) {
-            // 햄버거 메뉴 토글 기능
-            menuToggle.addEventListener('click', function() {
-              nav.classList.toggle('nav-open');
-            });
-            
-            // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
-            ulMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        nav.classList.remove('nav-open');
-                    }
-                });
-            });
-        }
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              
+              <div class="footer-section footer-summary">
+                  <h3>31NS-Tech Hardware Lab</h3>
+                  <p>
+                    20년 경력의 RF/BLE/NFC/Mixed-Signal HW 개발 및 튜닝 전문가.<br>
+                    실전 중심의 **Total Engineering Solution**을 제공합니다.
+                  </p>
+                  <p style="margin-top: 10px;">
+                      <a href="contact.html" class="cta-button" style="padding: 8px 15px; font-size: 14px; display: inline-block;">프로젝트 상담 의뢰</a>
+                  </p>
+              </div>
 
-        // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 1) {
-                document.body.classList.add('scrolled');
-            } else {
-                document.body.classList.remove('scrolled');
+              <div class="footer-section footer-contact">
+                  <h3>연락처 및 위치</h3>
+                  <p><i class="fas fa-map-marker-alt"></i> Gwangmyeong-si, Gyeonggi-do, ROK</p>
+                  <p><i class="fas fa-envelope"></i> <a href="mailto:promisesmk@gmail.com">promisesmk@gmail.com</a></p>
+                  <p><i class="fas fa-envelope"></i> <a href="mailto:nskim@31ns.kr">nskim@31ns.kr</a></p>
+              </div>
+
+              <div class="footer-section footer-links">
+                  <h3>빠른 이동</h3>
+                  <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About (소개)</a></li>
+                      <li><a href="services.html">Services (기술)</a></li>
+                      <li><a href="portfolio.html">Portfolio (사례)</a></li>
+                      <li><a href="contact.html">Contact (문의)</a></li>
+                  </ul>
+              </div>
+          </div>
+          
+          <div class="copyright">
+              &copy; 2025 31NS-Tech. All Rights Reserved. | RF·HW 개발 및 KC, FCC, CE 인증 대응 지원
+          </div>
+      </div>
+  </footer>
+  <script>
+    const nav = document.querySelector('nav');
+    const menuToggle = document.getElementById('menuToggle');
+    const ulMenu = nav.querySelector('ul');
+
+    // 햄버거 메뉴 토글 기능
+    menuToggle.addEventListener('click', function() {
+      nav.classList.toggle('nav-open');
+    });
+    
+    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+    ulMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('nav-open');
             }
         });
+    });
+
+    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 1) {
+            document.body.classList.add('scrolled');
+        } else {
+            document.body.classList.remove('scrolled');
+        }
     });
   </script>
 
