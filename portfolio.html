@@ -6,7 +6,7 @@
 
   <title>Project Portfolio – 31NS-Tech Hardware Lab</title>
 
-  <meta name="description" content="31NS-Tech Hardware Lab의 최근 하드웨어 개발 포트폴리오입니다. BLE 온도 모니터링 장치, 소방용 PASS 장비, Mixed-Signal 센서보드, NFC 듀얼 안테나 시스템, 커스텀 BLE 모듈 등 다양한 RF·BLE·NFC·Sensor 기반 프로젝트 사례를 소개합니다.">
+  <meta name="description" content="BLE 모니터링, 소방 PASS 장비, Mixed-Signal 센서, NFC 듀얼 안테나 등 31NS-Tech의 핵심 RF/HW 프로젝트 포트폴리오.">
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Project Portfolio – 31NS-Tech Hardware Lab" />
@@ -129,31 +129,36 @@
   </main>
   
   <script>
-    const nav = document.querySelector('nav');
-    const menuToggle = document.getElementById('menuToggle');
-    const ulMenu = nav.querySelector('ul');
+    // 스크립트 안정성 강화: DOM 로딩 후 실행 및 null 체크
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const nav = document.querySelector('nav');
+        const menuToggle = document.getElementById('menuToggle');
+        const ulMenu = nav.querySelector('ul');
+        
+        if (menuToggle) {
+            // 햄버거 메뉴 토글 기능
+            menuToggle.addEventListener('click', function() {
+              nav.classList.toggle('nav-open');
+            });
+            
+            // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
+            ulMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('nav-open');
+                    }
+                });
+            });
+        }
 
-    // 햄버거 메뉴 토글 기능
-    menuToggle.addEventListener('click', function() {
-      nav.classList.toggle('nav-open');
-    });
-    
-    // 메뉴 항목 클릭 시 메뉴 닫기 (모바일 UX 개선)
-    ulMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                nav.classList.remove('nav-open');
+        // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 1) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
             }
         });
-    });
-
-    // 스크롤 감지 클래스 추가 (nav 배경 투명 -> 불투명 전환)
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 1) {
-            document.body.classList.add('scrolled');
-        } else {
-            document.body.classList.remove('scrolled');
-        }
     });
   </script>
 
