@@ -14,6 +14,47 @@
   <meta property="og:image" content="assets/Logo 31NS-Tech.jpg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="assets/global.css" />
+  <style>
+    /* 키워드 테이블 기본 스타일 */
+    .keyword-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 0.95em;
+        table-layout: fixed; /* 테이블 레이아웃 고정 */
+    }
+    .keyword-table th, .keyword-table td {
+        padding: 12px 15px;
+        border: 1px solid #444; /* 어두운 배경에 맞춘 경계선 */
+        text-align: left;
+    }
+    .keyword-table th {
+        background-color: #1a1a1a; /* 카테고리 배경색 */
+        font-weight: bold;
+        width: 150px; /* 카테고리 너비 고정 */
+    }
+    .keyword-table td {
+        background-color: #2a2a2a; /* 내용 배경색 */
+        word-break: break-word; /* 긴 텍스트 줄바꿈 */
+    }
+    .keyword-explanation h3 {
+        color: #4CAF50; /* 초록색 강조 */
+        margin-top: 30px;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 5px;
+    }
+    .keyword-explanation ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .keyword-explanation ul li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+    .keyword-explanation ul li strong {
+        color: #1a73e8; /* 파란색 강조 */
+    }
+  </style>
 </head>
 
 <body class="page-contact">
@@ -73,7 +114,7 @@
         </div>
     </section>
 
-    <section id="preparation" class="section" style="border-bottom: none;">
+    <section id="preparation" class="section">
         <div class="container">
             <h2 class="section-title">🛠 문의 시 준비하시면 좋아요</h2>
             <div class="sub-card">
@@ -85,7 +126,71 @@
             </div>
         </div>
     </section>
-  </main>
+
+    <section id="keywords" class="section" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title">🌟 핵심 전문 기술 키워드</h2>
+            <div class="sub-card">
+                <p>
+                    31NS-Tech Hardware Lab의 전문성을 극대화하는 최종 키워드 목록입니다. 
+                    프로젝트 의뢰 시 참고하시면 상담이 더욱 효율적으로 진행됩니다.
+                </p>
+                <table class="keyword-table">
+                    <thead>
+                        <tr>
+                            <th>카테고리</th>
+                            <th>최종 키워드</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>RF/무선 통신</th>
+                            <td>RF 하드웨어 개발, BLE, NFC, 2.4GHz RF, Nordic (BLE 모듈), RF 회로 개발, RF출력튜닝, 안테나 튜닝, 임피던스 매칭, 2.4G 패턴 안테나 설계</td>
+                        </tr>
+                        <tr>
+                            <th>회로 설계/PCB</th>
+                            <td>PCB 설계, 빌드업 PCB 설계, 전자 회로 CAD, 디지털 회로, 아날로그 회로, Mixed-Signal AFE, 센서 회로 (산업용), 고전압/고전류 제어</td>
+                        </tr>
+                        <tr>
+                            <th>부품/모듈</th>
+                            <td>초음파 센서, 피에조 사운드, 미니 후레쉬 (LED 조명 회로)</td>
+                        </tr>
+                        <tr>
+                            <th>인증/생산</th>
+                            <td>KC/FCC/CE 인증, 양산 관리, DFM (제조를 위한 설계)</td>
+                        </tr>
+                        <tr>
+                            <th>소프트웨어</th>
+                            <td>펌웨어 개발, 임베디드 소프트웨어</td>
+                        </tr>
+                        <tr>
+                            <th>서비스/문의</th>
+                            <td>기술 상담, 하드웨어 개발 문의</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="sub-card keyword-explanation">
+                <h3 style="margin-top: 0;">🔎 추가된 핵심 키워드 상세 설명</h3>
+                <ul>
+                    <li>
+                        <strong>빌드업 PCB 설계 (Build-up PCB Design):</strong> 일반 PCB보다 적층 구조가 복잡한 **고밀도 회로 기판 설계** 능력을 강조합니다.
+                    </li>
+                    <li>
+                        <strong>RF 출력 튜닝 (RF Output Tuning):</strong> RF 제품의 성능(출력 전력, 안정성)을 **최적화**하는 전문 기술을 명확히 합니다.
+                    </li>
+                    <li>
+                        <strong>2.4G 패턴 안테나 설계 (2.4G Pattern Antenna Design):</strong> 안테나 매칭 외에 안테나 자체를 **PCB 기판에 내장**하는 고도화된 설계 능력을 부각합니다.
+                    </li>
+                    <li>
+                        <strong>초음파 센서, 피에조 사운드, 미니 후레쉬:</strong> 다양한 산업용 및 특수 기능성 제품(PASS 알람 등) 개발 경험을 구체적으로 보여줍니다.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    </main>
   
   <footer class="main-footer">
     <div class="container">
