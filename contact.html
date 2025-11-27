@@ -19,27 +19,27 @@
     .keyword-table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 20px;
+        margin-top: 15px; /* 마진 축소 */
         font-size: 0.95em;
-        table-layout: fixed; /* 테이블 레이아웃 고정 */
+        table-layout: fixed;
     }
     .keyword-table th, .keyword-table td {
-        padding: 12px 15px;
-        border: 1px solid #444; /* 어두운 배경에 맞춘 경계선 */
+        padding: 10px 15px; /* 셀 내부 패딩 축소 */
+        border: 1px solid #444;
         text-align: left;
     }
     .keyword-table th {
-        background-color: #1a1a1a; /* 카테고리 배경색 */
+        background-color: #1a1a1a;
         font-weight: bold;
-        width: 150px; /* 카테고리 너비 고정 */
+        width: 150px;
     }
     .keyword-table td {
-        background-color: #2a2a2a; /* 내용 배경색 */
-        word-break: break-word; /* 긴 텍스트 줄바꿈 */
+        background-color: #2a2a2a;
+        word-break: break-word;
     }
     .keyword-explanation h3 {
-        color: #4CAF50; /* 초록색 강조 */
-        margin-top: 30px;
+        color: #4CAF50;
+        margin-top: 20px; /* 마진 축소 */
         border-bottom: 2px solid #4CAF50;
         padding-bottom: 5px;
     }
@@ -48,11 +48,25 @@
         padding-left: 0;
     }
     .keyword-explanation ul li {
-        margin-bottom: 15px;
-        line-height: 1.6;
+        margin-bottom: 10px; /* 마진 축소 */
+        line-height: 1.5;
     }
     .keyword-explanation ul li strong {
-        color: #1a73e8; /* 파란색 강조 */
+        color: #1a73e8;
+    }
+    
+    /* 🌟 공백(패딩)을 줄이는 핵심 CSS 추가 🌟 */
+    .section {
+        padding: 40px 0; /* 기본 섹션 패딩을 80px에서 40px로 축소 가정 */
+    }
+    .section-title {
+        margin-bottom: 15px; /* 섹션 제목 아래 마진 축소 */
+    }
+    .sub-card {
+        padding: 15px 20px; /* 서브 카드 내부 패딩 축소 */
+    }
+    .sub-card ul li {
+        margin-bottom: 5px; /* 리스트 항목 아래 마진 축소 */
     }
   </style>
 </head>
@@ -78,14 +92,14 @@
   </nav>
 
   <main>
-    <section id="contact-intro" class="section" style="padding-top: 50px;">
+    <section id="contact-intro" class="section" style="padding-top: 50px; padding-bottom: 20px;">
         <div class="container">
             <h1 class="page-title">Contact</h1>
             <div class="page-subtitle">프로젝트 의뢰 · 기술 상담 · 협업 문의</div>
         </div>
     </section>
 
-    <section id="inquiry-guide" class="section">
+    <section id="inquiry-guide" class="section" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="container">
             <h2 class="section-title">📨 문의 안내</h2>
             <div class="sub-card">
@@ -93,7 +107,7 @@
                 31NS-Tech Hardware Lab은 RF · BLE · NFC · 센서 · Mixed-Signal  
                 하드웨어 기반의 실전형 엔지니어링 프로젝트를 수행합니다.
               </p>
-              <p>
+              <p style="margin-bottom: 0;">
                 회로설계, RF 튜닝, 제품 개발, 인증 대응, 양산 기술지원 등  
                 상담이 필요하신 경우 아래 연락처로 문의해주세요.
               </p>
@@ -101,7 +115,7 @@
         </div>
     </section>
 
-    <section id="contact-details" class="section">
+    <section id="contact-details" class="section" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="container">
             <h2 class="section-title">📧 연락처 정보</h2>
             <div class="sub-card">
@@ -114,7 +128,7 @@
         </div>
     </section>
 
-    <section id="preparation" class="section">
+    <section id="preparation" class="section" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="container">
             <h2 class="section-title">🛠 문의 시 준비하시면 좋아요</h2>
             <div class="sub-card">
@@ -127,11 +141,11 @@
         </div>
     </section>
 
-    <section id="keywords" class="section" style="padding-top: 0;">
+    <section id="keywords" class="section" style="padding-top: 20px; padding-bottom: 40px;">
         <div class="container">
             <h2 class="section-title">🌟 핵심 전문 기술 키워드</h2>
             <div class="sub-card">
-                <p>
+                <p style="margin-top: 0;">
                     31NS-Tech Hardware Lab의 전문성을 극대화하는 최종 키워드 목록입니다. 
                     프로젝트 의뢰 시 참고하시면 상담이 더욱 효율적으로 진행됩니다.
                 </p>
